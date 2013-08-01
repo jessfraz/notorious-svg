@@ -320,6 +320,12 @@ header {
   margin: 0;
   padding: 0;
   z-index: 9999;
+  top: 0px;
+  -webkit-transition: header_transition;
+  -moz-transition: header_transition;
+  -ms-transition: header_transition;
+  -o-transition: header_transition;
+  transition: header_transition;
 }
 header:before,
 header:after {
@@ -329,6 +335,10 @@ header:after {
 }
 header:after {
   clear: both;
+}
+header.scroll-hide {
+  top: -100%;
+  overflow: hidden;
 }
 header nav {
   position: relative;

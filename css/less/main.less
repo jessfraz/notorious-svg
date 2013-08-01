@@ -161,6 +161,14 @@ header {
 	margin:0;
 	padding:0;
 	z-index: 9999;
+	top:0px;
+	@header_transition: max-height 300ms ease-in, top 300ms ease-in-out;
+	.transition(header_transition);
+	&.scroll-hide {
+		top:-100%;
+		//max-height:0px;
+		overflow:hidden;
+	}
 	nav {
 		position:relative;
 		width:100%;

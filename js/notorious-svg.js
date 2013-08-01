@@ -77,8 +77,14 @@ var notorioussvg = {
 	onScroll: function(scrollY) {
 		var change = scrollY - this.lastScroll;
 		var difference = Math.abs(change);
+
+		if (change > 0 && this.currentScroll > 0){
+			$('header').addClass('scroll-hide');
+		} else {
+			$('header').removeClass('scroll-hide');
+		}
 		
-		
+		this.currentScroll = scrollY;
 		this.lastScroll = scrollY;
 	},
 	init: function() {
