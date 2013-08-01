@@ -54,14 +54,14 @@ EasyScroller.prototype.render = (function() {
 		
 		return function(left, top, zoom) {
 			this.content.style[transformProperty] = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')';
-			healthworks.onScroll(top);
+			notorioussvg.onScroll(top);
 		};	
 		
 	} else if (helperElem.style[transformProperty] !== undef) {
 		
 		return function(left, top, zoom) {
 			this.content.style[transformProperty] = 'translate(' + (-left) + 'px,' + (-top) + 'px) scale(' + zoom + ')';
-			healthworks.onScroll(top);
+			notorioussvg.onScroll(top);
 		};
 		
 	} else {
@@ -70,7 +70,7 @@ EasyScroller.prototype.render = (function() {
 			this.content.style.marginLeft = left ? (-left/zoom) + 'px' : '';
 			this.content.style.marginTop = top ? (-top/zoom) + 'px' : '';
 			this.content.style.zoom = zoom || '';
-			healthworks.onScroll(top);
+			notorioussvg.onScroll(top);
 		};
 		
 	}

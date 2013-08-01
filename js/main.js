@@ -87,7 +87,7 @@ var notorioussvg = {
 		// Initialize tap or click calls
 		var oncall;
 		if (notorioussvg.device){
-			oncall = 'tap';
+			oncall = 'touchstart';
 		} else {
 			oncall = 'click';	
 		}
@@ -121,7 +121,6 @@ var notorioussvg = {
 				
 				if ($(this).hasClass('arrow-right')){
 					if ($('.content.active').next('.content').length){
-						console.log('hasnext');
 						$currentactive.next().addClass('active');
 						setTimeout(function(){
 							$currentactive.removeClass('active');
