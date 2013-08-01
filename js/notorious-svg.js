@@ -106,13 +106,24 @@ var notorioussvg = {
 			}
 		});
 		
-		/* mobile menu tap off event */
+		/*  menu tap off event */
 		$('body').bind(oncall, function(e){
 			var $target = $(e.target);
 			if ($target.hasClass('menu-toggle') || $target.parents().hasClass('menu-toggle') || $target.hasClass('dropdown') || $target.parents().hasClass('dropdown')){
 				
 			} else {
 				$('nav.dropdown').removeClass('open');
+			}
+		});
+
+		/* arrow next section events */
+		$('.arrow').bind(oncall, function(e){
+			e.preventDefault();
+			if ($(this).hasClass('arrow-right')){
+				$('.content.active').removeClass('active').next().addClass('active');
+				
+			} else {
+				
 			}
 		});
 	}

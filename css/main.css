@@ -233,21 +233,56 @@ body {
   -o-user-select: none;
   user-select: none;
 }
-#content {
+.content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
   position: absolute;
-  left: 0;
+  left: 100%;
   width: 100%;
-  min-height: 100%;
   padding: 0;
   padding-bottom: 0;
-  color: white;
   overflow: hidden;
+  top: 0%;
+  z-index: -1;
+  min-height: 100%;
+  max-height: 0;
+  -webkit-transition: opacity 150ms ease-in-out, left 150ms ease-in-out;
+  -moz-transition: opacity 150ms ease-in-out, left 150ms ease-in-out;
+  -ms-transition: opacity 150ms ease-in-out, left 150ms ease-in-out;
+  -o-transition: opacity 150ms ease-in-out, left 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, left 150ms ease-in-out;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+.content.full-height-section {
+  height: 100%;
+}
+.content.active {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=0);
+  opacity: 1;
+  left: 0px;
   z-index: 1;
+  max-height: 10000000000px;
+}
+.content.active.scrolling-section {
+  min-height: 200%;
+}
+.content:nth-child(1) {
+  background: #333;
+}
+.content:nth-child(2) {
+  background: #666;
+}
+.content:nth-child(3) {
+  background: yellow;
+}
+.content:nth-child(4) {
+  background: blue;
 }
 a {
   color: #0088cc;
@@ -258,10 +293,10 @@ a {
   -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
-a:hover,
-a:focus {
+a:hover {
   color: #005580;
-  text-decoration: underline;
+  text-decoration: none;
+  border: 1px solid #005580;
 }
 header {
   *zoom: 1;
@@ -298,19 +333,28 @@ header nav:after {
 header nav:after {
   clear: both;
 }
-header nav .menu-toggle {
+header nav.main {
+  width: auto;
+  display: block;
+  padding: 20px 20px;
+}
+header nav.main a.menu-toggle {
   display: block;
   width: 30px;
   height: 30px;
   overflow: hidden;
 }
-header nav .menu-toggle:hover {
-  cursor: pointer;
+header nav.main a.arrow {
+  font-size: 30px;
+  line-height: 30px;
+  color: black;
 }
-header nav.main {
-  width: auto;
-  display: block;
-  padding: 20px 20px;
+header nav.main a.arrow.arrow-right {
+  margin-left: 20px;
+}
+header nav.main a:hover {
+  cursor: pointer;
+  border: none;
 }
 header nav.dropdown {
   position: absolute;
