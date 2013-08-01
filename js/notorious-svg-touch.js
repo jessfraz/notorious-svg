@@ -1822,6 +1822,8 @@ var notorioussvg = {
 		notorioussvg.windowHeight = $(window).height();
 		notorioussvg.windowWidth = $(window).width();
 		
+		$('.content article').css('margin-top', notorioussvg.windowHeight);
+
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 			notorioussvg.device = true;
 		} else {
@@ -1846,11 +1848,19 @@ var notorioussvg = {
 	onScroll: function(scrollY) {
 		var change = scrollY - this.lastScroll;
 		var difference = Math.abs(change);
+
+		if (change > 0 && this.currentScroll > 0){
+			$('header').addClass('scroll-hide');
+		} else {
+			$('header').removeClass('scroll-hide');
+		}
 		
-		
+		this.currentScroll = scrollY;
 		this.lastScroll = scrollY;
 	},
 	init: function() {
+		notorioussvg.resize();
+
 		// Bind window events
 		$(window).on("scroll", function() {
 			notorioussvg.onScroll($(this).scrollTop());

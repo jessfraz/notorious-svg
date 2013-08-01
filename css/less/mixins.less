@@ -249,3 +249,12 @@
 	  border-bottom: 0.375em solid black;
   }
 }
+
+.fullbackground(@cover) {
+	background-attachment:fixed;
+	-webkit-background-size: @cover;
+ 	-moz-background-size: @cover;
+ 	-o-background-size: @cover;
+ 	background-size: @cover;
+	-ms-behavior: url(backgroundsize.min.htc);
+}

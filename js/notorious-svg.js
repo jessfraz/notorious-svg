@@ -53,6 +53,8 @@ var notorioussvg = {
 		notorioussvg.windowHeight = $(window).height();
 		notorioussvg.windowWidth = $(window).width();
 		
+		$('.content article').css('margin-top', notorioussvg.windowHeight);
+
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 			notorioussvg.device = true;
 		} else {
@@ -88,6 +90,8 @@ var notorioussvg = {
 		this.lastScroll = scrollY;
 	},
 	init: function() {
+		notorioussvg.resize();
+
 		// Bind window events
 		$(window).on("scroll", function() {
 			notorioussvg.onScroll($(this).scrollTop());

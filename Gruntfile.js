@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 					banner: '<%= banner %>'
 				},
 				files: {
-					'css/<%= pkg.name %>.min.css': ['css/normalize.css', 'css/main.css']
+					'css/<%= pkg.name %>.min.css': ['css/normalize.css', 'css/fonts/ss-standard.css', 'css/main.css']
 				}
 			}
 		},
