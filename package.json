@@ -1,0 +1,17 @@
+{
+  "name": "notorious-svg",
+  "description": "Barrel Creative Days project by Jessie Frazelle, Isha Kasliwal, Matt Ortega, Diane Wang, and Molly Sugar.",
+  "author": {
+    "name": "The Nortorious SVG",
+    "url": "http://barrelny.com"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "matchdep": "~0.1.1",
+    "grunt-contrib-less": "~0.5.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-watch": "~0.4.3"
+  }
+}
