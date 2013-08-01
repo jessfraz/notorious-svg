@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 				tasks: ['uglify:dist']
 			},
 			php: {
-				files: '**/*.php',
+				files: '**/*.html',
 			}
 		}
 	});

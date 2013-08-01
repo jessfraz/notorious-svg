@@ -43,6 +43,7 @@ var notorioussvg = {
 	windowHeight: $(window).height(),
 	device: false,
 	currentlyScrolling: false,
+	changingSlide: false,
 	resize: function(){
 		notorioussvg.windowHeight = $(window).height();
 		notorioussvg.windowWidth = $(window).width();
@@ -114,11 +115,40 @@ var notorioussvg = {
 		/* arrow next section events */
 		$('.arrow').bind(oncall, function(e){
 			e.preventDefault();
-			if ($(this).hasClass('arrow-right')){
-				$('.content.active').removeClass('active').next().addClass('active');
+			if(!notorioussvg.changingSlide){
+				notorioussvg.changingSlide = true;
+				$currentactive = $('.content.active');
 				
-			} else {
-				
+				if ($(this).hasClass('arrow-right')){
+					if ($('.content.active').next('.content').length){
+						console.log('hasnext');
+						$currentactive.next().addClass('active');
+						setTimeout(function(){
+							$currentactive.removeClass('active');
+							notorioussvg.changingSlide = false;
+						}, 500);
+					} else {
+						$('.content').first().addClass('active');
+						setTimeout(function(){
+							$currentactive.removeClass('active');
+							notorioussvg.changingSlide = false;
+						}, 500);
+					}
+				} else {
+					if ($('.content.active').prev('.content').length){
+						$('.content.active').prev().addClass('active');
+						setTimeout(function(){
+							$currentactive.removeClass('active');
+							notorioussvg.changingSlide = false;
+						}, 300);
+					} else {
+						$('.content').last().addClass('active');
+						setTimeout(function(){
+							$currentactive.removeClass('active');
+							notorioussvg.changingSlide = false;
+						}, 300);
+					}
+				}
 			}
 		});
 	}
