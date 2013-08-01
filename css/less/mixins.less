@@ -234,3 +234,18 @@
 	background-image: -ms-linear-gradient(left, @startColor, @endColor);
 	background-image: -o-linear-gradient(left, @startColor, @endColor);
 }
+
+.hamburger-menu {
+  position: relative;
+  padding-left: 1.25em;
+  &:before {
+	  content: "";
+	  position: absolute;
+	  top: 0px;
+	  left: 20px;
+	  width: 2em;
+	  height: 0.375em;
+	  border-top: 1.0em double black;
+	  border-bottom: 0.375em solid black;
+  }
+}

@@ -1,3 +1,4 @@
+var notoriousscroller;
 var EasyScroller = function(content, options) {
 	
 	this.content = content;
@@ -6,7 +7,7 @@ var EasyScroller = function(content, options) {
 
 	// create Scroller instance
 	var that = this;
-	this.scroller = new Scroller(function(left, top, zoom) {
+	notoriousscroller = this.scroller = new Scroller(function(left, top, zoom) {
 		that.render(left, top, zoom);
 	}, options);
 
@@ -53,12 +54,14 @@ EasyScroller.prototype.render = (function() {
 		
 		return function(left, top, zoom) {
 			this.content.style[transformProperty] = 'translate3d(' + (-left) + 'px,' + (-top) + 'px,0) scale(' + zoom + ')';
+			healthworks.onScroll(top);
 		};	
 		
 	} else if (helperElem.style[transformProperty] !== undef) {
 		
 		return function(left, top, zoom) {
 			this.content.style[transformProperty] = 'translate(' + (-left) + 'px,' + (-top) + 'px) scale(' + zoom + ')';
+			healthworks.onScroll(top);
 		};
 		
 	} else {
@@ -67,6 +70,7 @@ EasyScroller.prototype.render = (function() {
 			this.content.style.marginLeft = left ? (-left/zoom) + 'px' : '';
 			this.content.style.marginTop = top ? (-top/zoom) + 'px' : '';
 			this.content.style.zoom = zoom || '';
+			healthworks.onScroll(top);
 		};
 		
 	}
@@ -170,7 +174,6 @@ EasyScroller.prototype.bindEvents = function() {
 		this.container.addEventListener("mousewheel", function(e) {
 			if(that.options.zooming) {
 				that.scroller.doMouseZoom(e.wheelDelta, e.timeStamp, e.pageX, e.pageY);	
-				e.preventDefault();
 			}
 		}, false);
 
@@ -188,15 +191,16 @@ document.addEventListener("DOMContentLoaded", function() {
 		var scrollable = element.dataset.scrollable;
 		var zoomable = element.dataset.zoomable || '';
 		var zoomOptions = zoomable.split('-');
-		var minZoom = zoomOptions.length > 1 && parseFloat(zoomOptions[0]);
-		var maxZoom = zoomOptions.length > 1 && parseFloat(zoomOptions[1]);
+		var minZoom = zoomOptions.length > 1 && parseInt(zoomOptions[0]);
+		var maxZoom = zoomOptions.length > 1 && parseInt(zoomOptions[1]);
 
 		new EasyScroller(element, {
 			scrollingX: scrollable === 'true' || scrollable === 'x',
 			scrollingY: scrollable === 'true' || scrollable === 'y',
 			zooming: zoomable === 'true' || zoomOptions.length > 1,
 			minZoom: minZoom,
-			maxZoom: maxZoom
+			maxZoom: maxZoom,
+			bouncing: false,
 		});
 
 	};

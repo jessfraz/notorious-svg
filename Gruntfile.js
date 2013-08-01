@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 				dest: 'js/<%= pkg.name %>.js'
 			},
 			touch: {
-				src: ['js/lib/Animate.js', 'js/lib/Scroller.js', 'js/lib/EasyScroller.js', 'js/main.js'],
+				src: ['js/lib/jquery.mobile.js', 'js/lib/Animate.js', 'js/lib/Scroller.js', 'js/lib/notorious-svg-scroller.js', 'js/main.js'],
 				dest: 'js/<%= pkg.name %>-touch.js'
 			}
 		},
