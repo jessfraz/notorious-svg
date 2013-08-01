@@ -201,13 +201,16 @@ body {
   color: #333333;
   background-color: #ffffff;
 }
-.container {
+#container {
   position: relative;
-  width: 1000px;
+  width: 100%;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   text-align: left;
+}
+#content {
+  position: absolute;
 }
 a {
   color: #0088cc;
