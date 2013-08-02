@@ -440,7 +440,7 @@ header nav.dropdown {
   max-height: 0;
   width: 100%;
   display: block;
-  top: 0%;
+  top: -400px;
   left: 0px;
   z-index: -1;
   -webkit-transition: max-height 150ms ease-in-out, opacity 150ms ease-in-out, top 150ms ease-in-out;
