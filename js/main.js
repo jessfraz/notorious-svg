@@ -223,7 +223,7 @@ var notorioussvg = {
 					} else {
 						notorioussvg.changeSlide($('.content').first(), $currentactive, false);
 					}
-				} else {
+				} else if ($(this).hasClass('arrow-left')) {
 					if ($('.content.active').prev('.content').length){
 						notorioussvg.changeSlide($('.content.active').prev(), $currentactive, true);
 					} else {

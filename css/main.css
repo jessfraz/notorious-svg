@@ -493,8 +493,8 @@ header nav.dropdown.open {
 .content.dark h2.title {
   color: #333333;
 }
-.content.dark.full-height-section .arrow {
-  background: rgba(51, 51, 51, 0.5);
+.content.dark .arrow {
+  color: #333333;
 }
 .content.full-height-section {
   text-align: center;
@@ -663,6 +663,29 @@ header nav.dropdown.open {
 }
 .content.scrolling-section.active .inner-holder {
   position: fixed;
+}
+.content.scrolling-section .arrow-scroll {
+  position: absolute;
+  top: 50%;
+  margin-top: -67px;
+  padding: 10px 10px 10px 30px;
+  text-align: center;
+  line-height: 100%;
+}
+.content.scrolling-section .arrow-scroll.arrow-scroll {
+  right: 60px;
+}
+.content.scrolling-section .arrow-scroll .icon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  display: block;
+  margin: 0px auto 0px auto !important;
+}
+.content.scrolling-section .arrow-scroll:hover {
+  cursor: default;
 }
 .content.active {
   min-height: 100%;

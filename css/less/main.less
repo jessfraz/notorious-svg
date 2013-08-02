@@ -226,10 +226,8 @@ header {
 		h2.title {
 			color:#333333;
 		}
-		&.full-height-section {
-			.arrow {
-				background:rgba(51,51,51, 0.5);
-			}
+		.arrow {
+			color:#333333;
 		}
 	}
 	&.full-height-section {
@@ -365,6 +363,25 @@ header {
 		&.active {
 			.inner-holder {
 				position:fixed;
+			}
+		}
+		.arrow-scroll {
+			position:absolute;
+			top:50%;
+			margin-top:-67px;
+			padding:10px 10px 10px 30px;
+			text-align:center;
+			line-height:100%;
+			&.arrow-scroll {
+				right:60px;
+			}
+			.icon {
+				.rotate(90deg);
+				display:block;
+				margin:-0px auto 0px auto !important;
+			}
+			&:hover {
+				cursor:default;
 			}
 		}
 	}
