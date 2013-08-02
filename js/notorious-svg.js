@@ -459,31 +459,38 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 		/* arrow next section events */
 		$('.arrow').bind(oncall, function(e){
 			e.preventDefault();
-			if(!notorioussvg.changingSlide){
-				notorioussvg.changingSlide = true;
-				$currentactive = $('.content.active');
+			if ($(this).hasClass('arrow-right') || $(this).hasClass('arrow-left')){
+				if(!notorioussvg.changingSlide){
+					notorioussvg.changingSlide = true;
+					$currentactive = $('.content.active');
 				
-				if ($currentactive.find('video').length){
-					var video_id = $currentactive.find('video').attr('id');
-					_V_(video_id).pause();
+					if ($currentactive.find('video').length){
+						var video_id = $currentactive.find('video').attr('id');
+						_V_(video_id).pause();
 					
-					if ($currentactive.hasClass('scrolling-section')){
-						$currentactive.find('article').css('position','absolute')
+						if ($currentactive.hasClass('scrolling-section')){
+							$currentactive.find('article').css('position','absolute')
+						}
 					}
-				}
 				
-				if ($(this).hasClass('arrow-right')){
-					if ($('.content.active').next('.content').length){
-						notorioussvg.changeSlide($currentactive.next(), $currentactive, false);
-					} else {
-						notorioussvg.changeSlide($('.content').first(), $currentactive, false);
+					if ($(this).hasClass('arrow-right')){
+						if ($('.content.active').next('.content').length){
+							notorioussvg.changeSlide($currentactive.next(), $currentactive, false);
+						} else {
+							notorioussvg.changeSlide($('.content').first(), $currentactive, false);
+						}
+					} else if ($(this).hasClass('arrow-left')) {
+						if ($('.content.active').prev('.content').length){
+							notorioussvg.changeSlide($('.content.active').prev(), $currentactive, true);
+						} else {
+							notorioussvg.changeSlide($('.content').last(), $currentactive, true);
+						}
 					}
-				} else if ($(this).hasClass('arrow-left')) {
-					if ($('.content.active').prev('.content').length){
-						notorioussvg.changeSlide($('.content.active').prev(), $currentactive, true);
-					} else {
-						notorioussvg.changeSlide($('.content').last(), $currentactive, true);
-					}
+				} else if ($(this).hasClass('arrow-scroll')){
+					notorioussvg.changingSlide = true;
+					$(this).parents('.content').animate({ scrollTop: '500px'}, 400, function(){
+						notorioussvg.changingSlide = false;
+					});
 				}
 			}
 		});

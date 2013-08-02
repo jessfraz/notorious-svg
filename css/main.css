@@ -451,6 +451,9 @@ header nav.dropdown ul li h3,
 header nav.dropdown ul li a {
   color: #ffffff;
 }
+header nav.dropdown ul li h3 {
+  display: none;
+}
 header nav.dropdown ul li a:hover {
   border: none;
 }
@@ -620,7 +623,7 @@ header nav.dropdown.open {
   position: relative;
   display: block;
   max-width: 720px;
-  padding: 0px 10px;
+  padding: 70px 10px;
   margin: 0 auto;
 }
 .content.scrolling-section article .article-inner:before,
@@ -697,6 +700,8 @@ header nav.dropdown.open {
   z-index: 1;
   max-height: 10000000000px;
   max-width: 10000000000px;
+  width: 100%;
+  min-width: 100%;
 }
 .content.active .video-js {
   position: fixed;
@@ -812,7 +817,7 @@ header nav.dropdown.open {
   padding-bottom: 220px;
 }
 .content.street {
-  background-image: url(../img/bgs/background-images_0003_the-street.jpg);
+  background: transparent;
 }
 .content.crossroads .inner-holder {
   background-image: url(../img/bgs/background-images_0001_crossroads.jpg);
@@ -1193,13 +1198,13 @@ header nav.dropdown.open {
   font-family: 'Erica One', cursive;
   color: #E81377;
 }
-video {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-}
+/*video {
+	height:100%;
+	width:100%;
+	position:absolute;
+	left:0px;
+	top:0px;
+}*/
 .pull-right {
   float: right;
 }
