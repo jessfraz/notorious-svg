@@ -226,6 +226,7 @@ header {
 		text-align:center;
 		height:100%;
 		.inner-holder {
+			position:relative;
 			display:table;
 			height:100%;
 			width:100%;
@@ -236,6 +237,7 @@ header {
 				height:100%;
 				width:100%;
 				.inner {
+					position:relative;
 					padding:60px 60px 60px 60px;
 					display:table-cell;
 					vertical-align:middle;
@@ -307,6 +309,7 @@ header {
 			background:white;
 			.clearfix;
 			margin:0;
+			z-index:1;
 			padding:20px 0 0px 0px;
 			
 			.article-inner {
@@ -361,6 +364,9 @@ header {
 		z-index:1;
 		max-height:10000000000px;
 		max-width:10000000000px;
+		.video-js {
+			position:fixed;
+		}
 	}
 	.arrow {
 		color:white;
@@ -426,7 +432,7 @@ header {
 	}
 	&.melting-pot {
 		.inner-holder {
-			background:#A79A94;
+			background:transparent;
 		}
 	}
 	&.sky {
@@ -594,6 +600,14 @@ header {
 			padding-right:55%;
 		}
 	}
+}
+
+video {
+	height:100%;
+	width:100%;
+	position:absolute;
+	left:0px;
+	top:0px;
 }
 
 

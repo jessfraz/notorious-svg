@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 					banner: '<%= banner %>'
 				},
 				files: {
-					'css/<%= pkg.name %>.min.css': ['css/normalize.css', 'css/fonts/ss-standard.css', 'css/main.css']
+					'css/<%= pkg.name %>.min.css': ['css/normalize.css', 'css/fonts/ss-standard.css', 'css/video-js.css', 'css/main.css']
 				}
 			}
 		},
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 				banner: '<%= banner %>'
 			},
 			dist: {
-				src: ['js/main.js'],
+				src: ['js/lib/video.js', 'js/lib/bigvideo.js', 'js/main.js'],
 				dest: 'js/<%= pkg.name %>.js'
 			}
 		},
