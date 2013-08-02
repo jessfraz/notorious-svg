@@ -1,13 +1,3 @@
-function start_video(next_element){
-	if (next_element.find('video').length){
-		if (next_element.find('article').length && next_element.hasClass('scrolling-section')){
-			next_element.find('article').css('position', 'relative');
-		}
-		var video_id = next_element.find('video').attr('id');
-		_V_(video_id).play();
-	}
-}
-
 var notorioussvg = {
 	currentScroll: 0,
 	scrolling: false,
@@ -23,6 +13,15 @@ var notorioussvg = {
 		
 		metropolis.width(notorioussvg.windowWidth);
 		metropolis.height(notorioussvg.windowHeight);
+	},
+	startVideo: function(next_element){
+		if (next_element.find('video').length){
+			if (next_element.find('article').length && next_element.hasClass('scrolling-section')){
+				next_element.find('article').css('position', 'relative');
+			}
+			var video_id = next_element.find('video').attr('id');
+			_V_(video_id).play();
+		}
 	},
 	resize: function(){
 		notorioussvg.windowHeight = $(window).height();
@@ -50,6 +49,27 @@ var notorioussvg = {
 			notorioussvg.currentlyScrolling = false;
 			notorioussvg.currentScroll = offset;
 		});
+	},
+	goTo: function(sectionName){
+		if ($("#container").find("[data-section='" + sectionName + "']").length){
+			notorioussvg.changingSlide = true;
+			var $currentactive = $('.content.active');
+			var $gotosection = $("#container").find("[data-section='" + sectionName + "']");
+			notorioussvg.changeSlide($gotosection, $currentactive, false);
+		}
+	},
+	changeSlide: function(nextElement, currentElement, isPrev){
+		var delay_time = 500;
+		if(isPrev){
+			delay_time = 300;
+		}
+		nextElement.addClass('active');
+		notorioussvg.startVideo(nextElement);
+		setTimeout(function(){
+			currentElement.removeClass('active');
+			notorioussvg.changingSlide = false;
+			window.location.hash = nextElement.data('section');
+		}, delay_time);
 	},
 	onScroll: function(scrollY) {
 		var change = scrollY - this.lastScroll;
@@ -80,6 +100,13 @@ var notorioussvg = {
 			oncall = 'touchstart';
 		} else {
 			oncall = 'click';	
+		}
+		
+		/* check hash */
+		if (window.location.hash !== "" && window.location.hash !== '#intro') {
+			var hash = window.location.hash.substring(1);
+			console.log(hash);
+			notorioussvg.goTo(hash);
 		}
 
 		/* menu events */
@@ -120,35 +147,15 @@ var notorioussvg = {
 				
 				if ($(this).hasClass('arrow-right')){
 					if ($('.content.active').next('.content').length){
-						$currentactive.next().addClass('active');
-						start_video($currentactive.next());
-						setTimeout(function(){
-							$currentactive.removeClass('active');
-							notorioussvg.changingSlide = false;
-						}, 500);
+						notorioussvg.changeSlide($currentactive.next(), $currentactive, false);
 					} else {
-						$('.content').first().addClass('active');
-						start_video($('.content').first());
-						setTimeout(function(){
-							$currentactive.removeClass('active');
-							notorioussvg.changingSlide = false;
-						}, 500);
+						notorioussvg.changeSlide($('.content').first(), $currentactive, false);
 					}
 				} else {
 					if ($('.content.active').prev('.content').length){
-						$('.content.active').prev().addClass('active');
-						start_video($currentactive.prev());
-						setTimeout(function(){
-							$currentactive.removeClass('active');
-							notorioussvg.changingSlide = false;
-						}, 300);
+						notorioussvg.changeSlide($('.content.active').prev(), $currentactive, true);
 					} else {
-						$('.content').last().addClass('active');
-						start_video($('.content').last());
-						setTimeout(function(){
-							$currentactive.removeClass('active');
-							notorioussvg.changingSlide = false;
-						}, 300);
+						notorioussvg.changeSlide($('.content').last(), $currentactive, true);
 					}
 				}
 			}
