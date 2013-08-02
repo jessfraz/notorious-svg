@@ -245,38 +245,34 @@ var notorioussvg = {
 				
 				if ($(this).hasClass('arrow-right')){
 					if ($('.content.active').next('.content').length){
-						$currentactive.next().addClass('active').css('z-index', '99999999');
+						$currentactive.next().addClass('active');
 						start_video($currentactive.next());
 						setTimeout(function(){
 							$currentactive.removeClass('active');
 							notorioussvg.changingSlide = false;
-							$currentactive.next().css('z-index', '1');
 						}, 500);
 					} else {
-						$('.content').first().addClass('active').css('z-index', '99999999');
+						$('.content').first().addClass('active');
 						start_video($('.content').first());
 						setTimeout(function(){
 							$currentactive.removeClass('active');
 							notorioussvg.changingSlide = false;
-							$('.content').first().css('z-index', '1');
 						}, 500);
 					}
 				} else {
 					if ($('.content.active').prev('.content').length){
-						$('.content.active').prev().addClass('active').css('z-index', '99999999');
+						$('.content.active').prev().addClass('active');
 						start_video($currentactive.prev());
 						setTimeout(function(){
 							$currentactive.removeClass('active');
 							notorioussvg.changingSlide = false;
-							$currentactive.prev().css('z-index', '1');
 						}, 300);
 					} else {
-						$('.content').last().addClass('active').css('z-index', '99999999');
+						$('.content').last().addClass('active');
 						start_video($('.content').last());
 						setTimeout(function(){
 							$currentactive.removeClass('active');
 							notorioussvg.changingSlide = false;
-							$('.content').last().css('z-index', '1');
 						}, 300);
 					}
 				}
