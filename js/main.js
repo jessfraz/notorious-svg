@@ -54,8 +54,12 @@ var notorioussvg = {
 		if ($("#container").find("[data-section='" + sectionName + "']").length){
 			notorioussvg.changingSlide = true;
 			var $currentactive = $('.content.active');
-			var $gotosection = $("#container").find("[data-section='" + sectionName + "']");
-			notorioussvg.changeSlide($gotosection, $currentactive, false);
+			if ($currentactive.data('section') !== sectionName){
+				var $gotosection = $("#container").find("[data-section='" + sectionName + "']");
+				notorioussvg.changeSlide($gotosection, $currentactive, false);
+			} else {
+				notorioussvg.changingSlide = false;
+			}
 		}
 	},
 	changeSlide: function(nextElement, currentElement, isPrev){
@@ -105,7 +109,6 @@ var notorioussvg = {
 		/* check hash */
 		if (window.location.hash !== "" && window.location.hash !== '#intro') {
 			var hash = window.location.hash.substring(1);
-			console.log(hash);
 			notorioussvg.goTo(hash);
 		}
 
@@ -119,11 +122,16 @@ var notorioussvg = {
 			}
 		});
 		
+		$('.menu-item').bind(oncall, function(e){
+			notorioussvg.goTo($(this).attr('href').substring(1));
+			$('nav.dropdown').removeClass('open');
+		});
+		
 		/*  menu tap off event */
 		$('body').bind(oncall, function(e){
 			var $target = $(e.target);
 			if ($target.hasClass('menu-toggle') || $target.parents().hasClass('menu-toggle') || $target.hasClass('dropdown') || $target.parents().hasClass('dropdown')){
-				
+				return;
 			} else {
 				$('nav.dropdown').removeClass('open');
 			}
