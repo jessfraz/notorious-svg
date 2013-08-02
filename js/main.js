@@ -17,7 +17,7 @@ var notorioussvg = {
 	device: false,
 	currentlyScrolling: false,
 	changingSlide: false,
-	url: 'this_url.com',
+	url: 'http://gotham-nyc.co',
 	videos: function(){
 		var metropolis = _V_("metropolis");
 		
