@@ -795,7 +795,6 @@ header nav.dropdown.open {
   background-image: url(../img/bgs/background-images_0003_the-street.jpg);
 }
 .content.mta footer {
-  position: fixed;
   bottom: 0px;
   left: 0px;
   *zoom: 1;
@@ -809,6 +808,9 @@ header nav.dropdown.open {
 }
 .content.mta footer:after {
   clear: both;
+}
+.content.mta.active footer {
+  position: fixed;
 }
 .content.rough-past {
   background-image: url(../img/bgs/background-images_0002_rough-past.jpg);
