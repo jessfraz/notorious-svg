@@ -263,23 +263,6 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
-#container {
-  overflow: hidden;
-}
-.touch #container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  cursor: default;
-  overflow: hidden;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
 a {
   color: #0088cc;
   text-decoration: none;

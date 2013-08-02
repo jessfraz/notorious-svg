@@ -57,6 +57,10 @@ var notorioussvg = {
 
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 			notorioussvg.device = true;
+			// alert if phone
+			if (/Android|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+				alert('This site is best experienced on a desktop, or tablet in landscape. Haters gonna hate.');
+			}
 		} else {
 			notorioussvg.device = false;
 		}	
@@ -64,16 +68,10 @@ var notorioussvg = {
 	scrollTo: function(elHref) {
 		notorioussvg.currentlyScrolling = true;
 
-		if (notorioussvg.device) {
-			notoriousscroller.scrollBy(null, offset, true);
+		$('html, body').animate({ scrollTop: offset}, 400, function(){
 			notorioussvg.currentlyScrolling = false;
 			notorioussvg.currentScroll = offset;
-		} else {
-			$('html, body').animate({ scrollTop: offset}, 400, function(){
-				notorioussvg.currentlyScrolling = false;
-				notorioussvg.currentScroll = offset;
-			});
-		}
+		});
 	},
 	onScroll: function(scrollY) {
 		var change = scrollY - this.lastScroll;

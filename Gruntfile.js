@@ -36,10 +36,6 @@ module.exports = function(grunt) {
 			dist: {
 				src: ['js/main.js'],
 				dest: 'js/<%= pkg.name %>.js'
-			},
-			touch: {
-				src: ['js/lib/Animate.js', 'js/lib/Scroller.js', 'js/lib/notorious-svg-scroller.js', 'js/main.js'],
-				dest: 'js/<%= pkg.name %>-touch.js'
 			}
 		},
 		uglify: {
@@ -49,7 +45,6 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>'],
-					'js/<%= pkg.name %>-touch.min.js': ['<%= concat.touch.dest %>'],
 				}
 			}
 		},
@@ -83,7 +78,6 @@ module.exports = function(grunt) {
 		'less:dist',
 		'cssmin',
 		'concat:dist',
-		'concat:touch',
 		'uglify:dist'
 	]);
 	
@@ -91,7 +85,6 @@ module.exports = function(grunt) {
 		'less:dist',
 		'cssmin',
 		'concat:dist',
-		'concat:touch',
 		'uglify:dist',
 		'watch'
 	]);
