@@ -778,6 +778,24 @@ header nav.dropdown.open {
 .content.crossroads .inner-holder {
   background-image: url(../img/bgs/background-images_0001_crossroads.jpg);
 }
+.content.face-pairing {
+  background: white;
+}
+.content.face-pairing .arrow {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+  -webkit-transition: all 300 ms ease-in;
+  -moz-transition: all 300 ms ease-in;
+  -ms-transition: all 300 ms ease-in;
+  -o-transition: all 300 ms ease-in;
+  transition: all 300 ms ease-in;
+}
+.content.face-pairing .arrow.show {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=0);
+  opacity: 1;
+}
 .content.arts-culture {
   background-image: url(../img/bgs/background-images_0000_art-culture.jpg);
   text-align: center;
@@ -934,6 +952,139 @@ header nav.dropdown.open {
 .facts-holder .fact.even {
   text-align: right;
   padding-right: 55%;
+}
+.pairings-holder {
+  *zoom: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+}
+.pairings-holder:before,
+.pairings-holder:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.pairings-holder:after {
+  clear: both;
+}
+.pairings-holder .col {
+  position: absolute;
+  width: 50%;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  height: 100%;
+}
+.pairings-holder .col .face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: right center;
+  display: block;
+}
+.pairings-holder .col .face.face-1 {
+  background-image: url(../img/faces/11L.jpg);
+}
+.pairings-holder .col .face.face-2 {
+  background-image: url(../img/faces/1R.jpg);
+}
+.pairings-holder .col .face.face-3 {
+  background-image: url(../img/faces/2L.jpg);
+}
+.pairings-holder .col .face.face-4 {
+  background-image: url(../img/faces/2R.jpg);
+}
+.pairings-holder .col .face.face-5 {
+  background-image: url(../img/faces/3L.jpg);
+}
+.pairings-holder .col .face.face-6 {
+  background-image: url(../img/faces/3R.jpg);
+}
+.pairings-holder .col .face.face-7 {
+  background-image: url(../img/faces/4L.jpg);
+}
+.pairings-holder .col .face.face-8 {
+  background-image: url(../img/faces/4R.jpg);
+}
+.pairings-holder .col .face.face-9 {
+  background-image: url(../img/faces/5L.jpg);
+}
+.pairings-holder .col .face.face-10 {
+  background-image: url(../img/faces/5R.jpg);
+}
+.pairings-holder .col .face.face-11 {
+  background-image: url(../img/faces/6L.jpg);
+}
+.pairings-holder .col .face.face-12 {
+  background-image: url(../img/faces/6R.jpg);
+}
+.pairings-holder .col .face.face-13 {
+  background-image: url(../img/faces/7L.jpg);
+}
+.pairings-holder .col .face.face-14 {
+  background-image: url(../img/faces/7R.jpg);
+}
+.pairings-holder .col .face.face-15 {
+  background-image: url(../img/faces/8L.jpg);
+}
+.pairings-holder .col .face.face-16 {
+  background-image: url(../img/faces/8R.jpg);
+}
+.pairings-holder .col .face.face-17 {
+  background-image: url(../img/faces/9L.jpg);
+}
+.pairings-holder .col .face.face-18 {
+  background-image: url(../img/faces/9R.jpg);
+}
+.pairings-holder .col .face.face-19 {
+  background-image: url(../img/faces/10L.jpg);
+}
+.pairings-holder .col .face.face-20 {
+  background-image: url(../img/faces/10R.jpg);
+}
+.pairings-holder .col .face.face-21 {
+  background-image: url(../img/faces/1L.jpg);
+}
+.pairings-holder .col .face.face-22 {
+  background-image: url(../img/faces/11R.jpg);
+}
+.pairings-holder .col.left {
+  left: 0px;
+}
+.pairings-holder .col.right {
+  right: 0px;
+}
+.pairings-holder .col.right .face {
+  background-position: left center;
+}
+.pairings-holder .title {
+  position: absolute;
+  left: 0px;
+  padding-right: 55%;
+  bottom: 100px;
+  text-align: right;
+  width: 45%;
+  margin: 0;
+}
+.active .pairings-holder .title {
+  position: fixed;
+}
+.pairings-holder .verb {
+  position: absolute;
+  right: 0px;
+  padding-left: 2%;
+  bottom: 100px;
+  text-align: left;
+  width: 98%;
+  display: block;
+  line-height: 43px;
+  color: white;
+  vertical-align: bottom;
 }
 video {
   height: 100%;

@@ -8,6 +8,11 @@ var notorioussvg = {
 	currentlyScrolling: false,
 	changingSlide: false,
 	url: 'http://gotham-nyc.co',
+	swiped: 0,
+	animating: false,
+	totalFaces: $('.left .face').length,
+	onFace: 0,
+	verbs: ['powerful', 'safe', 'explosive', 'fierce', 'universal', 'serendipitous', 'home', 'inspiring', 'overwhelming'],
 	videos: function(){
 		var metropolis = _V_("metropolis");
 		
@@ -29,6 +34,11 @@ var notorioussvg = {
 		
 		$('.scrolling-section article').css('margin-top', notorioussvg.windowHeight);
 		$('.facts-holder').css('margin-bottom', notorioussvg.windowHeight);
+		$('.face').css('height', notorioussvg.windowHeight);
+		
+		$('.col.left').css('top', -notorioussvg.windowHeight*(notorioussvg.totalFaces-1));
+		$('.col.right').css('top', 0);
+		$('.col').height(notorioussvg.windowHeight*notorioussvg.totalFaces);
 
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 			notorioussvg.device = true;
@@ -75,6 +85,45 @@ var notorioussvg = {
 			window.location.hash = nextElement.data('section');
 		}, delay_time);
 	},
+	moveStrip: function(direction) {
+        if (!notorioussvg.animating) {
+            notorioussvg.animating = true;
+            if (direction) {
+                if (direction == "down" && notorioussvg.onFace < notorioussvg.totalFaces - 1) {
+                    $('.col.left').animate({top: -notorioussvg.windowHeight*(notorioussvg.totalFaces-notorioussvg.onFace -2) }, 500, function(){
+                    });
+                    $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace+1) }, 500, function(){
+						notorioussvg.onFace++;
+                    });
+					$('.face-pairing .arrow').removeClass('show');
+                } else if (direction == "up" && notorioussvg.onFace!=0){
+                    $('.col.left').animate({top: -notorioussvg.windowHeight*(notorioussvg.totalFaces-notorioussvg.onFace) }, 500, function(){
+                    });
+					console.log(notorioussvg.onFace+' '+(notorioussvg.totalFaces-notorioussvg.onFace));
+                    $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace-1) }, 500, function(){
+						notorioussvg.onFace--;
+                    });
+					$('.face-pairing .arrow').removeClass('show');
+                } else if (direction == "down" && notorioussvg.onFace == notorioussvg.totalFaces - 1){
+                	$('.face-pairing .arrow').addClass('show');
+                }
+				
+				setTimeout(function(){
+					notorioussvg.animating = false;
+				}, 1000);
+            }
+        }
+    },
+	mouseWheel: function(change){
+		if (Math.abs(change) >= 0.6) {
+			if (change > 0) {
+				notorioussvg.moveStrip("up");
+			} else {
+				console.log('down');
+				notorioussvg.moveStrip("down");
+			}
+		}
+	},
 	onScroll: function(scrollY) {
 		var change = scrollY - this.lastScroll;
 		var difference = Math.abs(change);
@@ -92,10 +141,15 @@ var notorioussvg = {
 		notorioussvg.resize();
 
 		// Bind window events
-		$(window).on("scroll", function() {
+		$(window).on("scroll", function(e) {
 			notorioussvg.onScroll($(this).scrollTop());
 		}).on("resize", function() {
 			notorioussvg.resize();
+		}).on("mousewheel", function(e, delta, deltaX, deltaY){
+			if ($('.content.face-pairing').hasClass('active')){
+				notorioussvg.mouseWheel(delta);
+				e.preventDefault();
+			}
 		});
 		
 		// Initialize tap or click calls
@@ -184,7 +238,7 @@ var notorioussvg = {
 		});
 		
 		/* flash backups for videos */
-		videojs.options.flash.swf = "lib/video-js.swf";
+		videojs.options.flash.swf = "js/lib/video-js.swf";
 	}
 };
 

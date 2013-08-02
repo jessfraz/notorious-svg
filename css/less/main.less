@@ -491,6 +491,16 @@ header {
 			background-image:url(../img/bgs/background-images_0001_crossroads.jpg);
 		}
 	}
+	&.face-pairing {
+		background:white;
+		.arrow {
+			.opacity(0);
+			.transition(all 300 ms ease-in);
+			&.show {
+				.opacity(100);
+			}
+		}
+	}
 	&.arts-culture {
 		background-image:url(../img/bgs/background-images_0000_art-culture.jpg);
 		text-align:center;
@@ -599,6 +609,131 @@ header {
 			text-align:right;
 			padding-right:55%;
 		}
+	}
+}
+
+.pairings-holder {
+	.clearfix;
+	width:100%;
+	margin:0;
+	padding:0;
+	position:relative;
+	overflow:hidden;
+	min-height:100%;
+	.col {
+		position:absolute;
+		width:50%;
+		top:0px;
+		display:block;
+		overflow:hidden;
+		height:100%;
+		.face {
+			position:relative;
+			width:100%;
+			height:100%;
+			background-repeat:no-repeat;
+			background-position:right center;
+			display:block;
+			&.face-1 {
+				background-image:url(../img/faces/11L.jpg);
+			}
+			&.face-2 {
+				background-image:url(../img/faces/1R.jpg);
+			}
+			&.face-3 {
+				background-image:url(../img/faces/2L.jpg);
+			}
+			&.face-4 {
+				background-image:url(../img/faces/2R.jpg);
+			}
+			&.face-5 {
+				background-image:url(../img/faces/3L.jpg);
+			}
+			&.face-6 {
+				background-image:url(../img/faces/3R.jpg);
+			}
+			&.face-7 {
+				background-image:url(../img/faces/4L.jpg);
+			}
+			&.face-8 {
+				background-image:url(../img/faces/4R.jpg);
+			}
+			&.face-9 {
+				background-image:url(../img/faces/5L.jpg);
+			}
+			&.face-10 {
+				background-image:url(../img/faces/5R.jpg);
+			}
+			&.face-11 {
+				background-image:url(../img/faces/6L.jpg);
+			}
+			&.face-12 {
+				background-image:url(../img/faces/6R.jpg);
+			}
+			&.face-13 {
+				background-image:url(../img/faces/7L.jpg);
+			}
+			&.face-14 {
+				background-image:url(../img/faces/7R.jpg);
+			}
+			&.face-15 {
+				background-image:url(../img/faces/8L.jpg);
+			}
+			&.face-16 {
+				background-image:url(../img/faces/8R.jpg);
+			}
+			&.face-17 {
+				background-image:url(../img/faces/9L.jpg);
+			}
+			&.face-18 {
+				background-image:url(../img/faces/9R.jpg);
+			}
+			&.face-19 {
+				background-image:url(../img/faces/10L.jpg);
+			}
+			&.face-20 {
+				background-image:url(../img/faces/10R.jpg);
+			}
+			&.face-21 {
+				background-image:url(../img/faces/1L.jpg);
+			}
+			&.face-22 {
+				background-image:url(../img/faces/11R.jpg);
+			}
+		}
+		&.left {
+			left:0px;
+		}
+		&.right {
+			right:0px;
+			.face {
+				background-position:left center;
+			}
+		}
+	}
+	.title {
+		position:absolute;
+		left:0px;
+		padding-right:55%;
+		bottom:100px;
+		text-align:right;
+		width:45%;
+		margin:0;
+		.active & {
+			position:fixed;
+		}
+	}
+	.verb {
+		position:absolute;
+		right:0px;
+		padding-left:2%;
+		bottom:100px;
+		text-align:left;
+		width:98%;
+		display:block;
+		line-height:43px;
+		color:white;
+		vertical-align:bottom;
 	}
 }
 

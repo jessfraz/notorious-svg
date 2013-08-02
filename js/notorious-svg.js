@@ -123,7 +123,111 @@ $("videojs.MediaLoader",u.Fc);$("videojs.TextTrackDisplay",u.$b);$("videojs.Cont
 $("videojs.PlayProgressBar",u.Wb);$("videojs.SeekHandle",u.hb);$("videojs.VolumeControl",u.jb);$("videojs.VolumeBar",u.ib);$("videojs.VolumeLevel",u.bc);$("videojs.VolumeHandle",u.kb);$("videojs.MuteToggle",u.fa);$("videojs.PosterImage",u.eb);$("videojs.Menu",u.la);$("videojs.MenuItem",u.L);$("videojs.SubtitlesButton",u.Ea);$("videojs.CaptionsButton",u.Ca);$("videojs.ChaptersButton",u.Sb);$("videojs.MediaTechController",u.q);u.q.prototype.features=u.q.prototype.j;u.q.prototype.j.volumeControl=u.q.prototype.j.U;
 u.q.prototype.j.fullscreenResize=u.q.prototype.j.jc;u.q.prototype.j.progressEvents=u.q.prototype.j.Mb;u.q.prototype.j.timeupdateEvents=u.q.prototype.j.Pb;$("videojs.Html5",u.m);u.m.Events=u.m.$a;u.m.isSupported=u.m.isSupported;u.m.canPlaySource=u.m.nb;u.m.prototype.setCurrentTime=u.m.prototype.fd;u.m.prototype.setVolume=u.m.prototype.ld;u.m.prototype.setMuted=u.m.prototype.jd;u.m.prototype.setPreload=u.m.prototype.kd;u.m.prototype.setAutoplay=u.m.prototype.ed;u.m.prototype.setLoop=u.m.prototype.hd;
 $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;u.l.onReady=u.l.onReady;$("videojs.TextTrack",u.V);u.V.prototype.label=u.V.prototype.label;$("videojs.CaptionsTrack",u.Rb);$("videojs.SubtitlesTrack",u.Zb);$("videojs.ChaptersTrack",u.Tb);$("videojs.autoSetup",u.dc);$("videojs.plugin",u.cd);$("videojs.createTimeRange",u.tb);})();//@ sourceMappingURL=video.js.map
-var notorioussvg = {
+(function (factory) {
+    if ( typeof define === 'function' && define.amd ) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // Node/CommonJS style for Browserify
+        module.exports = factory;
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
+
+    var toFix = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'];
+    var toBind = 'onwheel' in document || document.documentMode >= 9 ? ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'];
+    var lowestDelta, lowestDeltaXY;
+
+    if ( $.event.fixHooks ) {
+        for ( var i = toFix.length; i; ) {
+            $.event.fixHooks[ toFix[--i] ] = $.event.mouseHooks;
+        }
+    }
+
+    $.event.special.mousewheel = {
+        setup: function() {
+            if ( this.addEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.addEventListener( toBind[--i], handler, false );
+                }
+            } else {
+                this.onmousewheel = handler;
+            }
+        },
+
+        teardown: function() {
+            if ( this.removeEventListener ) {
+                for ( var i = toBind.length; i; ) {
+                    this.removeEventListener( toBind[--i], handler, false );
+                }
+            } else {
+                this.onmousewheel = null;
+            }
+        }
+    };
+
+    $.fn.extend({
+        mousewheel: function(fn) {
+            return fn ? this.bind("mousewheel", fn) : this.trigger("mousewheel");
+        },
+
+        unmousewheel: function(fn) {
+            return this.unbind("mousewheel", fn);
+        }
+    });
+
+
+    function handler(event) {
+        var orgEvent = event || window.event,
+            args = [].slice.call(arguments, 1),
+            delta = 0,
+            deltaX = 0,
+            deltaY = 0,
+            absDelta = 0,
+            absDeltaXY = 0,
+            fn;
+        event = $.event.fix(orgEvent);
+        event.type = "mousewheel";
+
+        // Old school scrollwheel delta
+        if ( orgEvent.wheelDelta ) { delta = orgEvent.wheelDelta; }
+        if ( orgEvent.detail )     { delta = orgEvent.detail * -1; }
+
+        // New school wheel delta (wheel event)
+        if ( orgEvent.deltaY ) {
+            deltaY = orgEvent.deltaY * -1;
+            delta  = deltaY;
+        }
+        if ( orgEvent.deltaX ) {
+            deltaX = orgEvent.deltaX;
+            delta  = deltaX * -1;
+        }
+
+        // Webkit
+        if ( orgEvent.wheelDeltaY !== undefined ) { deltaY = orgEvent.wheelDeltaY; }
+        if ( orgEvent.wheelDeltaX !== undefined ) { deltaX = orgEvent.wheelDeltaX * -1; }
+
+        // Look for lowest delta to normalize the delta values
+        absDelta = Math.abs(delta);
+        if ( !lowestDelta || absDelta < lowestDelta ) { lowestDelta = absDelta; }
+        absDeltaXY = Math.max(Math.abs(deltaY), Math.abs(deltaX));
+        if ( !lowestDeltaXY || absDeltaXY < lowestDeltaXY ) { lowestDeltaXY = absDeltaXY; }
+
+        // Get a whole value for the deltas
+        fn = delta > 0 ? 'floor' : 'ceil';
+        delta  = Math[fn](delta / lowestDelta);
+        deltaX = Math[fn](deltaX / lowestDeltaXY);
+        deltaY = Math[fn](deltaY / lowestDeltaXY);
+
+        // Add event and delta to the front of the arguments
+        args.unshift(event, delta, deltaX, deltaY);
+
+        return ($.event.dispatch || $.event.handle).apply(this, args);
+    }
+
+}));var notorioussvg = {
 	currentScroll: 0,
 	scrolling: false,
 	lastScroll: 0,
@@ -133,6 +237,11 @@ var notorioussvg = {
 	currentlyScrolling: false,
 	changingSlide: false,
 	url: 'http://gotham-nyc.co',
+	swiped: 0,
+	animating: false,
+	totalFaces: $('.left .face').length,
+	onFace: 0,
+	verbs: ['powerful', 'safe', 'explosive', 'fierce', 'universal', 'serendipitous', 'home', 'inspiring', 'overwhelming'],
 	videos: function(){
 		var metropolis = _V_("metropolis");
 		
@@ -154,6 +263,11 @@ var notorioussvg = {
 		
 		$('.scrolling-section article').css('margin-top', notorioussvg.windowHeight);
 		$('.facts-holder').css('margin-bottom', notorioussvg.windowHeight);
+		$('.face').css('height', notorioussvg.windowHeight);
+		
+		$('.col.left').css('top', -notorioussvg.windowHeight*(notorioussvg.totalFaces-1));
+		$('.col.right').css('top', 0);
+		$('.col').height(notorioussvg.windowHeight*notorioussvg.totalFaces);
 
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 			notorioussvg.device = true;
@@ -200,6 +314,45 @@ var notorioussvg = {
 			window.location.hash = nextElement.data('section');
 		}, delay_time);
 	},
+	moveStrip: function(direction) {
+        if (!notorioussvg.animating) {
+            notorioussvg.animating = true;
+            if (direction) {
+                if (direction == "down" && notorioussvg.onFace < notorioussvg.totalFaces - 1) {
+                    $('.col.left').animate({top: -notorioussvg.windowHeight*(notorioussvg.totalFaces-notorioussvg.onFace -2) }, 500, function(){
+                    });
+                    $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace+1) }, 500, function(){
+						notorioussvg.onFace++;
+                    });
+					$('.face-pairing .arrow').removeClass('show');
+                } else if (direction == "up" && notorioussvg.onFace!=0){
+                    $('.col.left').animate({top: -notorioussvg.windowHeight*(notorioussvg.totalFaces-notorioussvg.onFace) }, 500, function(){
+                    });
+					console.log(notorioussvg.onFace+' '+(notorioussvg.totalFaces-notorioussvg.onFace));
+                    $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace-1) }, 500, function(){
+						notorioussvg.onFace--;
+                    });
+					$('.face-pairing .arrow').removeClass('show');
+                } else if (direction == "down" && notorioussvg.onFace == notorioussvg.totalFaces - 1){
+                	$('.face-pairing .arrow').addClass('show');
+                }
+				
+				setTimeout(function(){
+					notorioussvg.animating = false;
+				}, 1000);
+            }
+        }
+    },
+	mouseWheel: function(change){
+		if (Math.abs(change) >= 0.6) {
+			if (change > 0) {
+				notorioussvg.moveStrip("up");
+			} else {
+				console.log('down');
+				notorioussvg.moveStrip("down");
+			}
+		}
+	},
 	onScroll: function(scrollY) {
 		var change = scrollY - this.lastScroll;
 		var difference = Math.abs(change);
@@ -217,10 +370,15 @@ var notorioussvg = {
 		notorioussvg.resize();
 
 		// Bind window events
-		$(window).on("scroll", function() {
+		$(window).on("scroll", function(e) {
 			notorioussvg.onScroll($(this).scrollTop());
 		}).on("resize", function() {
 			notorioussvg.resize();
+		}).on("mousewheel", function(e, delta, deltaX, deltaY){
+			if ($('.content.face-pairing').hasClass('active')){
+				notorioussvg.mouseWheel(delta);
+				e.preventDefault();
+			}
 		});
 		
 		// Initialize tap or click calls
@@ -309,7 +467,7 @@ var notorioussvg = {
 		});
 		
 		/* flash backups for videos */
-		videojs.options.flash.swf = "lib/video-js.swf";
+		videojs.options.flash.swf = "js/lib/video-js.swf";
 	}
 };
 
