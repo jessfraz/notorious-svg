@@ -1,37 +1,22 @@
-function disable_scroll() {
-	if (window.addEventListener) {
-		window.addEventListener('DOMMouseScroll', wheel, false);
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = [37, 38, 39, 40];
+
+function preventDefault(e) {
+	e = e || window.event;
+	if (e.preventDefault){
+		e.preventDefault();
 	}
-	window.onmousewheel = document.onmousewheel = wheel;
-	document.onkeydown = keydown;
+	e.returnValue = false;  
 }
 
-function enable_scroll() {
-	if (window.removeEventListener) {
-		window.removeEventListener('DOMMouseScroll', wheel, false);
+function keydown(e) {
+	for (var i = keys.length; i--;) {
+		if (e.keyCode === keys[i]) {
+			preventDefault(e);
+			return;
+		}
 	}
-	window.onmousewheel = document.onmousewheel = document.onkeydown = null;  
-}
-
-function lockScrollPosition(){
-	// lock scroll position, but retain settings for later
-	var scrollPosition = [
-	self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
-	self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
-	];
-	var html = jQuery('html'); // it would make more sense to apply this to body, but IE7 won't have that
-	html.data('scroll-position', scrollPosition);
-	html.data('previous-overflow', html.css('overflow'));
-	html.css('overflow', 'hidden');
-	window.scrollTo(scrollPosition[0], scrollPosition[1]);
-}
-
-function unlockScrollPosition(){
-	// un-lock scroll position
-	var html = jQuery('html');
-	var scrollPosition = html.data('scroll-position');
-	html.css('overflow', html.data('previous-overflow'));
-	window.scrollTo(scrollPosition[0], scrollPosition[1]);
 }
 
 
@@ -155,6 +140,15 @@ var notorioussvg = {
 						}, 300);
 					}
 				}
+			}
+		});
+		
+		/* right and left keyboard keys */
+		$(document).keyup(function(e) {
+			if (e.keyCode == 37){ // left
+				$('.arrow-left').trigger('click');
+			} else if (e.keyCode == 39){ // right
+				$('.arrow-right').trigger('click');
 			}
 		});
 	}

@@ -194,6 +194,16 @@ header {
 	.transition(@sectiontransition);
 	background-position:center center;
 	.fullbackground(cover);
+	&.dark {
+		h2.title {
+			color:#333333;
+		}
+		&.full-height-section {
+			.arrow {
+				background:rgba(51,51,51, 0.5);
+			}
+		}
+	}
 	&.full-height-section {
 		text-align:center;
 		height:100%;
@@ -221,7 +231,8 @@ header {
 		.arrow {
 			position:absolute;
 			top:50%;
-			margin-top:-30px;
+			margin-top:-40px;
+			padding:10px 10px 10px 30px;
 			&.arrow-right {
 				right:60px;
 			}
@@ -384,7 +395,7 @@ header {
 			background:#A79A94;
 		}
 	}
-	&.sky-slide {
+	&.sky {
 		background-image:url(../img/bgs/background-images_0008_the-sky.jpg);
 	}
 	&.race-top {
@@ -430,7 +441,7 @@ header {
 			padding-bottom:220px;
 		}
 	}
-	&.the-street {
+	&.street {
 		background-image:url(../img/bgs/background-images_0003_the-street.jpg);
 	}
 	&.crossroads {
@@ -445,7 +456,7 @@ header {
 			margin:30px auto 0 auto;
 		}
 	}
-	&.the-underground {
+	&.underground {
 		background-image:url(../img/bgs/background-images_0004_the-underground.jpg);
 	}
 	&.beach-pneumatic {
@@ -454,6 +465,13 @@ header {
 		article {
 			margin:30px auto 0 auto;
 		}
+	}
+	&.rough-past {
+		background-image:url(../img/bgs/background-images_0002_rough-past.jpg);
+		text-align:left;
+	}
+	&.buskers {
+		background:#1073B9;
 	}
 }
 

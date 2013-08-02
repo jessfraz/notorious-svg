@@ -92,7 +92,7 @@ h1 {
 h1.main-title {
   text-transform: uppercase;
   color: white;
-  font-size: 8rem;
+  font-size: 5.6rem;
   line-height: 100%;
   margin: 0 0 1rem 0;
 }
@@ -102,7 +102,7 @@ h2 {
 h2.main-subtitle {
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
   color: #ffcb1e;
-  font-size: 3.2rem;
+  font-size: 2.2rem;
   margin: 0;
   font-weight: normal;
 }
@@ -114,9 +114,6 @@ h2.title em {
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
   text-transform: none;
   font-weight: normal;
-}
-h2.title.dark {
-  color: #333333;
 }
 h3 {
   font-size: 28px;
@@ -430,6 +427,12 @@ header nav.dropdown.open {
   background-size: cover;
   -ms-behavior: url(backgroundsize.min.htc);
 }
+.content.dark h2.title {
+  color: #333333;
+}
+.content.dark.full-height-section .arrow {
+  background: rgba(51, 51, 51, 0.5);
+}
 .content.full-height-section {
   text-align: center;
   height: 100%;
@@ -457,7 +460,8 @@ header nav.dropdown.open {
 .content.full-height-section .arrow {
   position: absolute;
   top: 50%;
-  margin-top: -30px;
+  margin-top: -40px;
+  padding: 10px 10px 10px 30px;
 }
 .content.full-height-section .arrow.arrow-right {
   right: 60px;
@@ -640,7 +644,7 @@ header nav.dropdown.open {
 .content.melting-pot .inner-holder {
   background: #A79A94;
 }
-.content.sky-slide {
+.content.sky {
   background-image: url(../img/bgs/background-images_0008_the-sky.jpg);
 }
 .content.race-top .inner-holder {
@@ -684,7 +688,7 @@ header nav.dropdown.open {
   font-size: 2.2rem;
   padding-bottom: 220px;
 }
-.content.the-street {
+.content.street {
   background-image: url(../img/bgs/background-images_0003_the-street.jpg);
 }
 .content.crossroads .inner-holder {
@@ -697,7 +701,7 @@ header nav.dropdown.open {
 .content.arts-culture article {
   margin: 30px auto 0 auto;
 }
-.content.the-underground {
+.content.underground {
   background-image: url(../img/bgs/background-images_0004_the-underground.jpg);
 }
 .content.beach-pneumatic {
@@ -706,6 +710,13 @@ header nav.dropdown.open {
 }
 .content.beach-pneumatic article {
   margin: 30px auto 0 auto;
+}
+.content.rough-past {
+  background-image: url(../img/bgs/background-images_0002_rough-past.jpg);
+  text-align: left;
+}
+.content.buskers {
+  background: #1073B9;
 }
 .pull-right {
   float: right;
