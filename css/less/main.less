@@ -226,8 +226,13 @@ header {
 		h2.title {
 			color:#333333;
 		}
-		.arrow {
+		.arrow-scroll {
 			color:#333333;
+		}
+		&.full-height-section {
+			.arrow-right {
+				color:#333333;
+			}
 		}
 	}
 	&.full-height-section {
@@ -353,7 +358,7 @@ header {
 				height:100%;
 				width:100%;
 				.inner {
-					padding:60px 60px 60px 60px;
+					padding:60px 130px 60px 130px;
 					display:table-cell;
 					vertical-align:middle;
 				}
@@ -479,7 +484,7 @@ header {
 			color:#333333;
 			text-transform:uppercase;
 			line-height:120%;
-			width:40%;
+			max-width:650px;
 			padding:60px;
 			margin:60px;
 			.quotes {
@@ -561,6 +566,10 @@ header {
 			footer {
 				position:fixed;
 			}
+		}
+		h2.title {
+			font-size:2.5rem;
+			margin-bottom:0;
 		}
 	}
 	&.rough-past {

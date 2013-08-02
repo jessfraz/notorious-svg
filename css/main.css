@@ -111,6 +111,7 @@ h2.main-subtitle {
 h2.title {
   color: white;
   text-transform: uppercase;
+  line-height: 120%;
 }
 h2.title em {
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
@@ -493,7 +494,10 @@ header nav.dropdown.open {
 .content.dark h2.title {
   color: #333333;
 }
-.content.dark .arrow {
+.content.dark .arrow-scroll {
+  color: #333333;
+}
+.content.dark.full-height-section .arrow-right {
   color: #333333;
 }
 .content.full-height-section {
@@ -657,7 +661,7 @@ header nav.dropdown.open {
   width: 100%;
 }
 .content.scrolling-section .inner-holder .inner-wrap .inner {
-  padding: 60px 60px 60px 60px;
+  padding: 60px 130px 60px 130px;
   display: table-cell;
   vertical-align: middle;
 }
@@ -777,7 +781,7 @@ header nav.dropdown.open {
   color: #333333;
   text-transform: uppercase;
   line-height: 120%;
-  width: 40%;
+  max-width: 650px;
   padding: 60px;
   margin: 60px;
 }
@@ -872,6 +876,10 @@ header nav.dropdown.open {
 }
 .content.mta.active footer {
   position: fixed;
+}
+.content.mta h2.title {
+  font-size: 2.5rem;
+  margin-bottom: 0;
 }
 .content.rough-past {
   background-image: url(../img/bgs/background-images_0002_rough-past.jpg);

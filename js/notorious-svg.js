@@ -329,16 +329,17 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
                     $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace+1) }, 500, function(){
 						notorioussvg.onFace++;
                     });
-					$('.face-pairing .arrow').removeClass('show');
+					if (notorioussvg.onFace == (notorioussvg.totalFaces - 2)){
+	                	$('.face-pairing .arrow').addClass('show');
+	                } else {
+						$('.face-pairing .arrow').removeClass('show');
+	                }
                 } else if (direction == "up" && notorioussvg.onFace!=0){
 					$('#verb').fadeOut(250, function(){
 						$('#verb').removeClass().addClass('verb-'+(notorioussvg.onFace-1));
 						$('#verb').html(notorioussvg.verbs[(notorioussvg.onFace-1)]);
 						$('#verb').fadeIn(250);
 					});
-					if (direction == "down" && notorioussvg.onFace == notorioussvg.totalFaces - 2){
-	                	$('.face-pairing .arrow').addClass('show');
-	                }
                     $('.col.left').animate({top: -notorioussvg.windowHeight*(notorioussvg.totalFaces-notorioussvg.onFace) }, 500, function(){
                     });
                     $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace-1) }, 500, function(){
@@ -473,7 +474,7 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 		
 		/* tweet button */
 		$('.tweet').bind(oncall, function(){
-			window.open( 'https://twitter.com/intent/tweet?url='+notorioussvg.url+'&via=barrelny&text='+encodeURIComponent($('.shout').val())+'&hashtags=gothamis,nycis,barrelny', '_blank');
+			window.open( 'https://twitter.com/intent/tweet?url='+notorioussvg.url+'&via=barrelny&text='+encodeURIComponent('New York is ' + $('.shout').val())+'&hashtags=gothamis,nycis,barrelny', '_blank');
 		});
 		
 		/* flash backups for videos */
