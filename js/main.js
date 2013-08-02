@@ -13,6 +13,7 @@ var notorioussvg = {
 	totalFaces: $('.left .face').length,
 	onFace: 0,
 	verbs: ['powerful', 'safe', 'explosive', 'fierce', 'universal', 'serendipitous', 'home', 'inspiring', 'overwhelming', 'unique', 'beautiful'],
+	agent: navigator.userAgent.toLowerCase(),
 	videos: function(){
 		var meltingpot = _V_("melting-pot-boat");
 		
@@ -258,10 +259,15 @@ var notorioussvg = {
 						}
 					}
 				} else if ($(this).hasClass('arrow-scroll')){
-					notorioussvg.changingSlide = true;
-					$(this).parents('.content').animate({ scrollTop: '500px'}, 400, function(){
-						notorioussvg.changingSlide = false;
-					});
+					if (notorioussvg.agent.indexOf('safari')!=-1){ 
+						if (notorioussvg.agent.indexOf('chrome')  > -1){
+						} else {
+							notorioussvg.changingSlide = true;
+							$(this).parents('.content').find('article').animate({marginTop: 0}, 500, function(){
+								notorioussvg.changingSlide = false;
+							});
+						}
+					}
 				}
 			}
 		});

@@ -314,9 +314,36 @@ a.btn {
   min-width: 120px;
   background: #2989E2;
   text-transform: uppercase;
+  text-shadow: 0px 1px 0px #333333;
+  letter-spacing: 1px;
+  border: 1px solid #2374BF;
 }
 a.btn.tweet {
   background: #29ABE2;
+  border: 1px solid #29ABE2;
+}
+a.btn.share {
+  border-color: #2989E2;
+}
+a.btn.email {
+  color: #999999;
+  background-color: #e5e5e5;
+  text-shadow: 0px 1px 0px #ffffff;
+  border: 1px solid #E5E5E5;
+}
+a.btn:active {
+  border-color: #d9d9d9;
+  background: #e5e5e5;
+  box-shadow: none;
+}
+a.btn:active.tweet {
+  border-color: #29ABE2;
+}
+a.btn:active.share {
+  border-color: #2989E2;
+}
+a.btn:active.email {
+  border-color: #e5e5e5;
 }
 a:hover {
   color: #005580;
@@ -325,8 +352,23 @@ a:hover {
 }
 a:hover.btn {
   color: white;
-  border: none;
   cursor: pointer;
+  box-shadow: 0px 1px 4px #555555;
+  border-color: #999999;
+  background-color: #e9e9e9;
+}
+a:hover.btn.tweet {
+  background-color: #45B6E6;
+  border-color: #2B7387;
+}
+a:hover.btn.share {
+  background-color: #3699F5;
+  border-color: #2B7387;
+}
+a:hover.btn.email {
+  color: #999999;
+  background-color: #f5f5f5;
+  border-color: #ffffff;
 }
 header {
   *zoom: 1;
@@ -820,7 +862,7 @@ header nav.dropdown.open {
   background: transparent;
 }
 .content.crossroads .inner-holder {
-  background-image: url(../img/bgs/background-images_0001_crossroads.jpg);
+  background-image: url(../img/bgs/crossroads.jpg);
 }
 .content.cab {
   background: transparent;
