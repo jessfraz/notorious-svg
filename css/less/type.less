@@ -86,7 +86,18 @@ h3 {
 	}
 }
 h4 { font-size: @baseFontSize * 1.25; }
-h5 { font-size: @baseFontSize; }
+h5 { 
+	font-size: @baseFontSize;
+	color:#999999;
+	text-transform:uppercase;
+	line-height:150%;
+	em {
+		font-family:@serifFontFamily;
+		display:block;
+		text-transform:none;
+		font-weight:normal;
+	}
+}
 h6 { font-size: @baseFontSize * 0.85; }
 h1 small { font-size: @baseFontSize * 1.75; }
 h2 small { font-size: @baseFontSize * 1.25; }

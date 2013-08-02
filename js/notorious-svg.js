@@ -3,26 +3,6 @@ notorious-svg - v - 2013-08-01
 Barrel Creative Days project by Jessie Frazelle, Isha Kasliwal, Matt Ortega, Diane Wang, and Molly Sugar.
 Lovingly coded by The Nortorious SVG  - http://barrelny.com 
 */
-var keys = [37, 38, 39, 40];
-
-function preventDefault(e) {
-	e = e || window.event;
-	if (e.preventDefault){
-		e.preventDefault();
-	}
-	e.returnValue = false;  
-}
-
-function keydown(e) {
-	for (var i = keys.length; i--;) {
-		if (e.keyCode === keys[i]) {
-			preventDefault(e);
-			return;
-		}
-	}
-}
-
-
 var notorioussvg = {
 	currentScroll: 0,
 	scrolling: false,
@@ -32,6 +12,7 @@ var notorioussvg = {
 	device: false,
 	currentlyScrolling: false,
 	changingSlide: false,
+	url: 'this_url.com',
 	resize: function(){
 		notorioussvg.windowHeight = $(window).height();
 		notorioussvg.windowWidth = $(window).width();
@@ -153,6 +134,11 @@ var notorioussvg = {
 			} else if (e.keyCode == 39){ // right
 				$('.arrow-right').trigger('click');
 			}
+		});
+		
+		/* tweet button */
+		$('.tweet').bind(oncall, function(){
+			window.open( 'https://twitter.com/intent/tweet?url='+notorioussvg.url+'&via=barrelny&text='+encodeURIComponent($('.shout').val())+'&hashtags=gothamis,nycis,barrelny', '_blank');
 		});
 	}
 };

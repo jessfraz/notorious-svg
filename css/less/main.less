@@ -71,11 +71,29 @@ a {
   color: @linkColor;
   text-decoration: none;
   .transition(all 0.3s ease-in);
+  &.btn {
+	  vertical-align:top;
+	  display:inline-block;
+	  font-weight:700;
+	  color:white;
+	  padding:15px 20px;
+	  min-width:120px;
+	  background:#2989E2;
+	  text-transform:uppercase;
+	  &.tweet {
+		  background:#29ABE2;
+	  }
+  }
 }
 a:hover {
   color: @linkColorHover;
   text-decoration: none;
   border-bottom:1px solid @linkColorHover;
+  &.btn {
+  	color:white;
+	border:none;
+	cursor:pointer;
+  }
 }
 
 
@@ -256,6 +274,22 @@ header {
 					font-family:@serifFontFamily;
 					font-size:1.3rem;
 					line-height:150%;
+				}
+			}
+		}
+		footer {
+			position:absolute;
+			bottom:0px;
+			left:0px;
+			.clearfix;
+			text-align:center;
+			padding-bottom:20px;
+			width:100%;
+			h5.notorious-svg {
+				color:white;
+				margin-top:20px;
+				span {
+					margin:0px 10px;
 				}
 			}
 		}
@@ -472,6 +506,36 @@ header {
 	}
 	&.buskers {
 		background:#1073B9;
+	}
+	&.end {
+		background:#717171;
+		form {
+			.clearfix;
+			margin:20px 0 0 0;
+			input {
+				display:inline-block;
+				vertical-align:top;
+				padding:15px 20px;
+				min-width:250px;
+				color:#333333;
+				font-family: @baseFontFamily;
+				border:none;
+				outline:none;
+			}
+			a.btn {
+				//margin-top:-1px;
+			}
+		}
+		.share-holder {
+			margin-top:50px;
+			.clearfix;
+			.email {
+				margin-right:10px;
+			}
+			.share {
+				margin-left:10px;
+			}
+		}
 	}
 }
 

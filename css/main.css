@@ -132,6 +132,15 @@ h4 {
 }
 h5 {
   font-size: 16px;
+  color: #999999;
+  text-transform: uppercase;
+  line-height: 150%;
+}
+h5 em {
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  display: block;
+  text-transform: none;
+  font-weight: normal;
 }
 h6 {
   font-size: 13.6px;
@@ -269,10 +278,28 @@ a {
   -o-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
 }
+a.btn {
+  vertical-align: top;
+  display: inline-block;
+  font-weight: 700;
+  color: white;
+  padding: 15px 20px;
+  min-width: 120px;
+  background: #2989E2;
+  text-transform: uppercase;
+}
+a.btn.tweet {
+  background: #29ABE2;
+}
 a:hover {
   color: #005580;
   text-decoration: none;
   border-bottom: 1px solid #005580;
+}
+a:hover.btn {
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 header {
   *zoom: 1;
@@ -487,6 +514,31 @@ header nav.dropdown.open {
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
   font-size: 1.3rem;
   line-height: 150%;
+}
+.content.full-height-section footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  *zoom: 1;
+  text-align: center;
+  padding-bottom: 20px;
+  width: 100%;
+}
+.content.full-height-section footer:before,
+.content.full-height-section footer:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.content.full-height-section footer:after {
+  clear: both;
+}
+.content.full-height-section footer h5.notorious-svg {
+  color: white;
+  margin-top: 20px;
+}
+.content.full-height-section footer h5.notorious-svg span {
+  margin: 0px 10px;
 }
 .content.scrolling-section footer {
   *zoom: 1;
@@ -717,6 +769,51 @@ header nav.dropdown.open {
 }
 .content.buskers {
   background: #1073B9;
+}
+.content.end {
+  background: #717171;
+}
+.content.end form {
+  *zoom: 1;
+  margin: 20px 0 0 0;
+}
+.content.end form:before,
+.content.end form:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.content.end form:after {
+  clear: both;
+}
+.content.end form input {
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px 20px;
+  min-width: 250px;
+  color: #333333;
+  font-family: 'Gotham A', 'Gotham B', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: none;
+  outline: none;
+}
+.content.end .share-holder {
+  margin-top: 50px;
+  *zoom: 1;
+}
+.content.end .share-holder:before,
+.content.end .share-holder:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.content.end .share-holder:after {
+  clear: both;
+}
+.content.end .share-holder .email {
+  margin-right: 10px;
+}
+.content.end .share-holder .share {
+  margin-left: 10px;
 }
 .pull-right {
   float: right;

@@ -1,25 +1,3 @@
-// left: 37, up: 38, right: 39, down: 40,
-// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-var keys = [37, 38, 39, 40];
-
-function preventDefault(e) {
-	e = e || window.event;
-	if (e.preventDefault){
-		e.preventDefault();
-	}
-	e.returnValue = false;  
-}
-
-function keydown(e) {
-	for (var i = keys.length; i--;) {
-		if (e.keyCode === keys[i]) {
-			preventDefault(e);
-			return;
-		}
-	}
-}
-
-
 var notorioussvg = {
 	currentScroll: 0,
 	scrolling: false,
@@ -29,6 +7,7 @@ var notorioussvg = {
 	device: false,
 	currentlyScrolling: false,
 	changingSlide: false,
+	url: 'this_url.com',
 	resize: function(){
 		notorioussvg.windowHeight = $(window).height();
 		notorioussvg.windowWidth = $(window).width();
@@ -150,6 +129,11 @@ var notorioussvg = {
 			} else if (e.keyCode == 39){ // right
 				$('.arrow-right').trigger('click');
 			}
+		});
+		
+		/* tweet button */
+		$('.tweet').bind(oncall, function(){
+			window.open( 'https://twitter.com/intent/tweet?url='+notorioussvg.url+'&via=barrelny&text='+encodeURIComponent($('.shout').val())+'&hashtags=gothamis,nycis,barrelny', '_blank');
 		});
 	}
 };
