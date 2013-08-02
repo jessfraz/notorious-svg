@@ -32,8 +32,9 @@
   border-bottom: 0.375em solid black;
 }
 p {
-  margin: 0 0 10px;
+  margin: 0 0 1.4rem;
   line-height: 150%;
+  font-size: 1.4rem;
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
 }
 .lead {
@@ -92,12 +93,13 @@ h1 {
 h1.main-title {
   text-transform: uppercase;
   color: white;
-  font-size: 5.6rem;
+  font-size: 7.2rem;
   line-height: 100%;
   margin: 0 0 1rem 0;
 }
 h2 {
-  font-size: 36px;
+  font-size: 4.2rem;
+  margin-bottom: 4.2rem;
 }
 h2.main-subtitle {
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
@@ -407,6 +409,8 @@ header nav.dropdown {
   filter: alpha(opacity=0);
   opacity: 0;
   overflow: hidden;
+  background-color: rgba(11, 11, 11, 0.9);
+  padding: 100px 0;
 }
 header nav.dropdown ul {
   position: relative;
@@ -440,6 +444,14 @@ header nav.dropdown ul li:first-child {
 }
 header nav.dropdown ul li:last-child {
   margin-right: 0px;
+}
+header nav.dropdown ul li p,
+header nav.dropdown ul li h3,
+header nav.dropdown ul li a {
+  color: #ffffff;
+}
+header nav.dropdown ul li a:hover {
+  border: none;
 }
 header nav.dropdown.open {
   top: 100%;
@@ -534,7 +546,7 @@ header nav.dropdown.open {
 }
 .content.full-height-section article .article-inner {
   border: 1px solid #999999;
-  padding: 20px;
+  padding: 40px 40px;
 }
 .content.full-height-section article .article-inner p {
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
@@ -603,7 +615,7 @@ header nav.dropdown.open {
   *zoom: 1;
   position: relative;
   display: block;
-  max-width: 500px;
+  max-width: 720px;
   padding: 0px 10px;
   margin: 0 auto;
 }
@@ -693,7 +705,7 @@ header nav.dropdown.open {
 }
 .content.intro-quote blockquote {
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 5.5rem;
   color: white;
   text-transform: uppercase;
   line-height: 120%;
@@ -738,7 +750,7 @@ header nav.dropdown.open {
 }
 .content.skyscraper-quote blockquote {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 4.2rem;
   color: #333333;
   text-transform: uppercase;
   line-height: 120%;
@@ -1070,21 +1082,83 @@ header nav.dropdown.open {
   text-align: right;
   width: 45%;
   margin: 0;
+  line-height: 88px;
+  vertical-align: bottom;
 }
 .active .pairings-holder .title {
   position: fixed;
 }
-.pairings-holder .verb {
+.pairings-holder #verb {
   position: absolute;
-  right: 0px;
-  padding-left: 2%;
+  left: 0px;
+  padding-left: 55%;
   bottom: 100px;
+  text-align: right;
+  width: 45%;
+  margin: 0;
   text-align: left;
-  width: 98%;
   display: block;
-  line-height: 43px;
+  line-height: 100%;
   color: white;
   vertical-align: bottom;
+  font-size: 88px;
+  text-transform: uppercase;
+  -webkit-transition: all 300ms ease-in;
+  -moz-transition: all 300ms ease-in;
+  -ms-transition: all 300ms ease-in;
+  -o-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
+}
+.active .pairings-holder #verb {
+  position: fixed;
+}
+.pairings-holder #verb.verb-0 {
+  font-family: 'New Rocker', cursive;
+  color: #E02329;
+}
+.pairings-holder #verb.verb-1 {
+  font-family: 'Titan One', cursive;
+  color: #78B4A9;
+}
+.pairings-holder #verb.verb-2 {
+  font-family: 'Erica One', cursive;
+  color: #E81377;
+}
+.pairings-holder #verb.verb-3 {
+  font-family: 'Joti One', cursive;
+  color: #E81377;
+}
+.pairings-holder #verb.verb-4 {
+  font-family: 'Julius Sans One', sans-serif;
+  color: #1AA4C8;
+}
+.pairings-holder #verb.verb-5 {
+  font-family: 'Londrina Sketch', cursive;
+  color: #AE2FE3;
+}
+.pairings-holder #verb.verb-6 {
+  font-weight: 700;
+  color: #3FAC7C;
+}
+.pairings-holder #verb.verb-7 {
+  font-family: 'Purple Purse', cursive;
+  color: #F9E592;
+}
+.pairings-holder #verb.verb-8 {
+  font-family: 'Loved by the King', cursive;
+  color: #F9E592;
+}
+.pairings-holder #verb.verb-9 {
+  font-family: 'New Rocker', cursive;
+  color: #E02329;
+}
+.pairings-holder #verb.verb-10 {
+  font-family: 'Titan One', cursive;
+  color: #78B4A9;
+}
+.pairings-holder #verb.verb-11 {
+  font-family: 'Erica One', cursive;
+  color: #E81377;
 }
 video {
   height: 100%;

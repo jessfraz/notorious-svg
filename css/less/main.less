@@ -162,6 +162,8 @@ header {
 			.transition(@navtransition);
 		   	.opacity(0);
 			overflow:hidden;
+			background-color: rgba(11,11,11,.9);
+			padding: 100px 0;
 			ul {
 				position:relative;
 				.clearfix;
@@ -183,6 +185,14 @@ header {
 					}
 					&:last-child {
 						margin-right:0px;
+					}
+					p, h3, a {
+						color: #ffffff;
+					}
+					a {
+						&:hover {
+							border:none;
+						}
 					}
 				}
 			}
@@ -271,7 +281,7 @@ header {
 			max-width:50%;
 			.article-inner {
 				border:1px solid #999999;
-				padding:20px;
+				padding: 40px 40px;
 				p {
 					font-family:@serifFontFamily;
 					font-size:1.3rem;
@@ -316,7 +326,7 @@ header {
 				.clearfix;
 				position:relative;
 				display:block;
-				max-width:500px;
+				max-width: 720px;
 				padding:0px 10px;
 				margin:0 auto;
 			}
@@ -399,7 +409,7 @@ header {
 		text-align:left;
 		blockquote {
 			font-weight:700;
-			font-size:4rem;
+			font-size: 5.5rem;
 			color:white;
 			text-transform:uppercase;
 			line-height:120%;
@@ -448,7 +458,7 @@ header {
 		text-align:left;
 		blockquote {
 			font-weight:700;
-			font-size:3rem;
+			font-size: 4.2rem;
 			color:#333333;
 			text-transform:uppercase;
 			line-height:120%;
@@ -719,21 +729,79 @@ header {
 		text-align:right;
 		width:45%;
 		margin:0;
+		line-height:88px;
+		vertical-align:bottom;
 		.active & {
 			position:fixed;
 		}
 	}
-	.verb {
+	#verb {
 		position:absolute;
-		right:0px;
-		padding-left:2%;
+		left:0px;
+		padding-left:55%;
 		bottom:100px;
+		text-align:right;
+		width:45%;
+		margin:0;
 		text-align:left;
-		width:98%;
 		display:block;
-		line-height:43px;
+		line-height:100%;
 		color:white;
 		vertical-align:bottom;
+		font-size:88px;
+		.active & {
+			position:fixed;
+		}
+		text-transform:uppercase;
+		.transition(all 300ms ease-in);
+		&.verb-0 {
+			font-family: 'New Rocker', cursive;
+			color:#E02329;
+		}
+		&.verb-1 {
+			font-family: 'Titan One', cursive;
+			color:#78B4A9;
+		}
+		&.verb-2 {
+			font-family: 'Erica One', cursive;
+			color:#E81377;
+		}
+		&.verb-3 {
+			font-family: 'Joti One', cursive;
+			color:#E81377;
+		}
+		&.verb-4 {
+			font-family: 'Julius Sans One', sans-serif;
+			color:#1AA4C8;
+		}
+		&.verb-5 {
+			font-family: 'Londrina Sketch', cursive;
+			color:#AE2FE3;
+		}
+		&.verb-6 {
+			font-weight:700;
+			color:#3FAC7C;
+		}
+		&.verb-7 {
+			font-family: 'Purple Purse', cursive;
+			color:#F9E592;
+		}
+		&.verb-8 {
+			font-family: 'Loved by the King', cursive;
+			color:#F9E592;
+		}
+		&.verb-9 {
+			font-family: 'New Rocker', cursive;
+			color:#E02329;
+		}
+		&.verb-10 {
+			font-family: 'Titan One', cursive;
+			color:#78B4A9;
+		}
+		&.verb-11 {
+			font-family: 'Erica One', cursive;
+			color:#E81377;
+		}
 	}
 }
 

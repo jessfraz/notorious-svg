@@ -241,7 +241,7 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 	animating: false,
 	totalFaces: $('.left .face').length,
 	onFace: 0,
-	verbs: ['powerful', 'safe', 'explosive', 'fierce', 'universal', 'serendipitous', 'home', 'inspiring', 'overwhelming'],
+	verbs: ['powerful', 'safe', 'explosive', 'fierce', 'universal', 'serendipitous', 'home', 'inspiring', 'overwhelming', 'unique', 'beautiful'],
 	videos: function(){
 		var metropolis = _V_("metropolis");
 		
@@ -319,6 +319,11 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
             notorioussvg.animating = true;
             if (direction) {
                 if (direction == "down" && notorioussvg.onFace < notorioussvg.totalFaces - 1) {
+					$('#verb').fadeOut(250, function(){
+						$('#verb').removeClass().addClass('verb-'+(notorioussvg.onFace+1));
+						$('#verb').html(notorioussvg.verbs[(notorioussvg.onFace+1)]);
+						$('#verb').fadeIn(250);
+					});
                     $('.col.left').animate({top: -notorioussvg.windowHeight*(notorioussvg.totalFaces-notorioussvg.onFace -2) }, 500, function(){
                     });
                     $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace+1) }, 500, function(){
@@ -326,20 +331,25 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
                     });
 					$('.face-pairing .arrow').removeClass('show');
                 } else if (direction == "up" && notorioussvg.onFace!=0){
+					$('#verb').fadeOut(250, function(){
+						$('#verb').removeClass().addClass('verb-'+(notorioussvg.onFace-1));
+						$('#verb').html(notorioussvg.verbs[(notorioussvg.onFace-1)]);
+						$('#verb').fadeIn(250);
+					});
+					if (direction == "down" && notorioussvg.onFace == notorioussvg.totalFaces - 2){
+	                	$('.face-pairing .arrow').addClass('show');
+	                }
                     $('.col.left').animate({top: -notorioussvg.windowHeight*(notorioussvg.totalFaces-notorioussvg.onFace) }, 500, function(){
                     });
-					console.log(notorioussvg.onFace+' '+(notorioussvg.totalFaces-notorioussvg.onFace));
                     $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace-1) }, 500, function(){
 						notorioussvg.onFace--;
                     });
 					$('.face-pairing .arrow').removeClass('show');
-                } else if (direction == "down" && notorioussvg.onFace == notorioussvg.totalFaces - 1){
-                	$('.face-pairing .arrow').addClass('show');
                 }
 				
 				setTimeout(function(){
 					notorioussvg.animating = false;
-				}, 1000);
+				}, 2000);
             }
         }
     },
