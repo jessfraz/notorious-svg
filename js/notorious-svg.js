@@ -517,6 +517,13 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 		
 		/* flash backups for videos */
 		videojs.options.flash.swf = "js/lib/video-js.swf";
+		
+		if (notorioussvg.agent.indexOf('safari')!=-1){ 
+			if (notorioussvg.agent.indexOf('chrome')  > -1){
+			} else {
+				alert('Hello Safari User, this is best viewed in Chrome due to the background videos, if you get stuck in a video use your keyboard right and left arrows to move to the next page.');
+			}
+		}
 	}
 };
 
