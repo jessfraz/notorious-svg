@@ -53,7 +53,7 @@ var notorioussvg = {
 		notorioussvg.windowHeight = $(window).height();
 		notorioussvg.windowWidth = $(window).width();
 		
-		$('.content article').css('margin-top', notorioussvg.windowHeight);
+		$('.scrolling-section article').css('margin-top', notorioussvg.windowHeight);
 
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 			notorioussvg.device = true;

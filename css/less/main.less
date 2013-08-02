@@ -12,7 +12,7 @@
 @blueDark:              #0064cd;
 @green:                 #46a546;
 @red:                   #9d261d;
-@yellow:                #ffc40d;
+@yellow:                #FFCB1E;
 @orange:                #f89406;
 @pink:                  #c3325f;
 @purple:                #7a43b6;
@@ -25,10 +25,10 @@
 @linkColorHover:        darken(@linkColor, 15%);
 
 @sansFontFamily:        'Gotham A', 'Gotham B', "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+@serifFontFamily:       "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          14px;
+@baseFontSize:          16px;
 @baseFontFamily:        @sansFontFamily;
 @baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
@@ -62,6 +62,7 @@ body {
 }
 
 #container {
+	overflow:hidden;
 	.touch & {
 		position: absolute;
 		left: 0;
@@ -158,6 +159,7 @@ header {
 			@navtransition: max-height 150ms ease-in-out, opacity 150ms ease-in-out, top 150ms ease-in-out;
 			.transition(@navtransition);
 		   	.opacity(0);
+			overflow:hidden;
 			ul {
 				position:relative;
 				.clearfix;
@@ -199,50 +201,78 @@ header {
 	left: 100%; 
 	width: 100%;
 	padding:0;
-	padding-bottom: 0;
 	overflow: hidden;
 	top:0%;
 	z-index:1;
-	min-height:100%;
 	max-height:0;
 	max-width:0;
-	@sectiontransition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out, max-height 300ms ease-in-out;
+	@sectiontransition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
 	.transition(@sectiontransition);
+	background-position:center center;
+	.fullbackground(cover);
 	&.full-height-section {
+		text-align:center;
 		height:100%;
+		.inner-holder {
+			display:table;
+			height:100%;
+			width:100%;
+			min-height:100%;
+			.inner-wrap {
+				position:relative;
+				display:table-row;
+				height:100%;
+				width:100%;
+				.inner {
+					padding:60px 60px 60px 60px;
+					display:table-cell;
+					vertical-align:middle;
+					&.has-article {
+						padding:60px 120px 60px 120px;
+					}
+				}
+
+			}
+		}
+		
+		.arrow {
+			position:absolute;
+			top:50%;
+			margin-top:-30px;
+			&.arrow-right {
+				right:60px;
+			}
+			&.arrow-left {
+				right:60px;
+			}
+		}
+		&.active {
+			max-height:100%;
+		}
+		
+		article {
+			margin:30px 0 0 0;
+			background:white;
+			padding:10px;
+			max-width:50%;
+			.article-inner {
+				border:1px solid #999999;
+				padding:20px;
+				p {
+					font-family:@serifFontFamily;
+					font-size:1.3rem;
+					line-height:150%;
+				}
+			}
+		}
 	}
 	&.scrolling-section {
-		background-position:center center;
-		.fullbackground(cover);
 		footer {
 			.clearfix;
 			position:relative;
 			background:rgba(51,51,51,0.5);
-			padding:60px;
+			padding:40px;
 			margin:0;
-			a {
-				color:white;
-				text-transform:uppercase;
-				font-weight:700;
-				font-size:14px;
-				line-height:60px;
-				&:hover {
-					border-bottom:none;
-				}
-
-				.icon {
-					font-weight:normal;
-					font-size:60px;
-					vertical-align:middle;
-					&.icon-arrow-left {
-						margin-right:10px;
-					}
-					&.icon-arrow-right {
-						margin-left:10px;
-					}
-
-				}
-			}
 		}
 		article {
 			position:relative;
@@ -262,41 +292,160 @@ header {
 
 			footer {
 				margin-top:30px;
-				background:rgba(51,51,51,0.9);
+				background:rgba(51,51,51,1);
+			}
+		}
+		
+		.inner-holder {
+			position:absolute;
+			left:0px;
+			top:0px;
+			display:table;
+			height:100%;
+			width:100%;
+			min-height:100%;
+			text-align:center;
+			.inner-wrap {
+				position:relative;
+				display:table-row;
+				height:100%;
+				width:100%;
+				.inner {
+					padding:60px 60px 60px 60px;
+					display:table-cell;
+					vertical-align:middle;
+				}
+
+			}
+		}
+		&.active {
+			.inner-holder {
+				position:fixed;
 			}
 		}
 	}
 	&.active {
+		min-height:100%;
 		left:0px;
 		z-index:1;
 		max-height:10000000000px;
 		max-width:10000000000px;
 	}
-	&.prev {
-		left:auto;
-		right:100%;
-		&.active {
-			left:auto;
-			right:0px;
+	.arrow {
+		color:white;
+		text-transform:uppercase;
+		font-weight:700;
+		font-size:14px;
+		line-height:60px;
+		&:hover {
+			border-bottom:none;
+		}
+
+		.icon {
+			font-weight:normal;
+			font-size:60px;
+			vertical-align:middle;
+			&.icon-arrow-left {
+				margin-right:10px;
+			}
+			&.icon-arrow-right {
+				margin-left:10px;
+			}
+
 		}
 	}
-	&:nth-child(1) {
-		background-image:url(http://photos.barrelny.com/wp-content/uploads/2009/09/hi_res_medium/MSG_Fountain_hi_res_medium.jpg);
+	&.title-slide {
+		background:#717171;
 	}
-	&:nth-child(2) {
-		background:#16a085;
+	&.intro-quote {
+		background:black;
+		text-align:left;
+		blockquote {
+			font-weight:700;
+			font-size:4rem;
+			color:white;
+			text-transform:uppercase;
+			line-height:120%;
+			margin:0 0 50px 0;
+			padding-right:120px;
+		}
+		h2.main-subtitle {
+			font-size:2.2rem;
+		}
 	}
-	&:nth-child(3) {
-		background-image:url(http://photos.barrelny.com/wp-content/uploads/2009/09/hi_res_medium/Cityscape_hi_res_medium.jpg);
+	
+	&.intro-history {
+		background:black;
 	}
-	&:nth-child(4) {
-		background:#9b59b6;
+	&.wall-slide {
+		background:#F9F3DB;
+		text-align:left;
 	}
-	&:nth-child(5) {
-		background-image:url(http://photos.barrelny.com/wp-content/uploads/2009/09/hi_res_medium/NighttimeCityscape_hi_res_medium.jpg);
+	&.grid-slide {
+		background:#A79A94;
+		text-align:left;
+		p {
+			margin-top:30px;
+			img {
+				float:left;
+				margin-right:50px;
+			}
+			padding-right:80px;
+		}
 	}
-	&:nth-child(6) {
-		background:#f39c12;
+	&.sky-slide {
+		background:#1070B3;
+	}
+	&.race-top {
+		background:#C6CEC7;
+	}
+	&.skyscraper-quote {
+		background:#FBF7EC;
+		text-align:left;
+		blockquote {
+			font-weight:700;
+			font-size:3rem;
+			color:#333333;
+			text-transform:uppercase;
+			line-height:120%;
+			width:40%;
+			padding:60px;
+			margin:60px;
+			.quotes {
+				position:absolute;
+				top:-40px;
+				left:-20px;
+				font-size:400px;
+				line-height:100%;
+				color:rgba(0,0,0,0.1);
+			}
+		}
+	}
+	&.empire-long {
+		background:#8ECAD7;
+		text-align:center;
+		blockquote {
+			font-weight:700;
+			font-size:6rem;
+			color:white;
+			text-transform:uppercase;
+			line-height:180%;
+			padding:120px 0 0 0;
+		}
+		h2.main-subtitle {
+			font-size:2.2rem;
+			padding-bottom:220px;
+		}
+	}
+	&.crossroads {
+		background:#F4E0C9;
+	}
+	&.beach-pneumatic {
+		background:white;
+		text-align:center;
+		article {
+			margin:30px auto 0 auto;
+		}
 	}
 }
 

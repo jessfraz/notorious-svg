@@ -33,12 +33,17 @@
 }
 p {
   margin: 0 0 10px;
+  line-height: 150%;
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
 }
 .lead {
   margin-bottom: 20px;
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 200;
   line-height: 30px;
+}
+* {
+  -webkit-font-smoothing: antialiased;
 }
 small {
   font-size: 85%;
@@ -58,9 +63,10 @@ h3,
 h4,
 h5,
 h6 {
+  position: relative;
   margin: 10px 0;
   font-family: inherit;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 20px;
   color: inherit;
   text-rendering: optimizelegibility;
@@ -81,34 +87,69 @@ h3 {
   line-height: 40px;
 }
 h1 {
-  font-size: 38.5px;
+  font-size: 44px;
+}
+h1.main-title {
+  text-transform: uppercase;
+  color: white;
+  font-size: 8rem;
+  line-height: 100%;
+  margin: 0 0 1rem 0;
 }
 h2 {
-  font-size: 31.5px;
+  font-size: 36px;
+}
+h2.main-subtitle {
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  color: #ffcb1e;
+  font-size: 3.2rem;
+  margin: 0;
+  font-weight: normal;
+}
+h2.title {
+  color: white;
+  text-transform: uppercase;
+}
+h2.title em {
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  text-transform: none;
+  font-weight: normal;
+}
+h2.title.dark {
+  color: #333333;
 }
 h3 {
-  font-size: 24.5px;
+  font-size: 28px;
+}
+h3.quote-title {
+  margin-top: 20px;
+  color: white;
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+}
+h3.quote-title .author {
+  display: block;
+  color: #ffcb1e;
 }
 h4 {
-  font-size: 17.5px;
+  font-size: 20px;
 }
 h5 {
-  font-size: 14px;
+  font-size: 16px;
 }
 h6 {
-  font-size: 11.9px;
+  font-size: 13.6px;
 }
 h1 small {
-  font-size: 24.5px;
+  font-size: 28px;
 }
 h2 small {
-  font-size: 17.5px;
+  font-size: 20px;
 }
 h3 small {
-  font-size: 14px;
+  font-size: 16px;
 }
 h4 small {
-  font-size: 14px;
+  font-size: 16px;
 }
 ul,
 ol {
@@ -160,13 +201,12 @@ hr {
   border-bottom: 1px solid #ffffff;
 }
 blockquote {
-  padding: 0 0 0 15px;
+  position: relative;
   margin: 0 0 20px;
-  border-left: 5px solid #eeeeee;
 }
 blockquote p {
   margin-bottom: 0;
-  font-size: 17.5px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.25;
 }
@@ -215,13 +255,16 @@ html {
 body {
   margin: 0;
   font-family: 'Gotham A', 'Gotham B', "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #333333;
   background-color: #ffffff;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+}
+#container {
+  overflow: hidden;
 }
 .touch #container {
   position: absolute;
@@ -332,6 +375,7 @@ header nav.dropdown {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
+  overflow: hidden;
 }
 header nav.dropdown ul {
   position: relative;
@@ -384,23 +428,16 @@ header nav.dropdown.open {
   left: 100%;
   width: 100%;
   padding: 0;
-  padding-bottom: 0;
   overflow: hidden;
   top: 0%;
   z-index: 1;
-  min-height: 100%;
   max-height: 0;
   max-width: 0;
-  -webkit-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out, max-height 300ms ease-in-out;
-  -moz-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out, max-height 300ms ease-in-out;
-  -ms-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out, max-height 300ms ease-in-out;
-  -o-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out, max-height 300ms ease-in-out;
-  transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out, max-height 300ms ease-in-out;
-}
-.content.full-height-section {
-  height: 100%;
-}
-.content.scrolling-section {
+  -webkit-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
+  -moz-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
+  -ms-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
+  -o-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
+  transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
   background-position: center center;
   background-attachment: fixed;
   -webkit-background-size: cover;
@@ -409,11 +446,64 @@ header nav.dropdown.open {
   background-size: cover;
   -ms-behavior: url(backgroundsize.min.htc);
 }
+.content.full-height-section {
+  text-align: center;
+  height: 100%;
+}
+.content.full-height-section .inner-holder {
+  display: table;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+.content.full-height-section .inner-holder .inner-wrap {
+  position: relative;
+  display: table-row;
+  height: 100%;
+  width: 100%;
+}
+.content.full-height-section .inner-holder .inner-wrap .inner {
+  padding: 60px 60px 60px 60px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.content.full-height-section .inner-holder .inner-wrap .inner.has-article {
+  padding: 60px 120px 60px 120px;
+}
+.content.full-height-section .arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+}
+.content.full-height-section .arrow.arrow-right {
+  right: 60px;
+}
+.content.full-height-section .arrow.arrow-left {
+  right: 60px;
+}
+.content.full-height-section.active {
+  max-height: 100%;
+}
+.content.full-height-section article {
+  margin: 30px 0 0 0;
+  background: white;
+  padding: 10px;
+  max-width: 50%;
+}
+.content.full-height-section article .article-inner {
+  border: 1px solid #999999;
+  padding: 20px;
+}
+.content.full-height-section article .article-inner p {
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3rem;
+  line-height: 150%;
+}
 .content.scrolling-section footer {
   *zoom: 1;
   position: relative;
   background: rgba(51, 51, 51, 0.5);
-  padding: 60px;
+  padding: 40px;
   margin: 0;
 }
 .content.scrolling-section footer:before,
@@ -424,27 +514,6 @@ header nav.dropdown.open {
 }
 .content.scrolling-section footer:after {
   clear: both;
-}
-.content.scrolling-section footer a {
-  color: white;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 60px;
-}
-.content.scrolling-section footer a:hover {
-  border-bottom: none;
-}
-.content.scrolling-section footer a .icon {
-  font-weight: normal;
-  font-size: 60px;
-  vertical-align: middle;
-}
-.content.scrolling-section footer a .icon.icon-arrow-left {
-  margin-right: 10px;
-}
-.content.scrolling-section footer a .icon.icon-arrow-right {
-  margin-left: 10px;
 }
 .content.scrolling-section article {
   position: relative;
@@ -481,39 +550,151 @@ header nav.dropdown.open {
 }
 .content.scrolling-section article footer {
   margin-top: 30px;
-  background: rgba(51, 51, 51, 0.9);
+  background: #333333;
+}
+.content.scrolling-section .inner-holder {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: table;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  text-align: center;
+}
+.content.scrolling-section .inner-holder .inner-wrap {
+  position: relative;
+  display: table-row;
+  height: 100%;
+  width: 100%;
+}
+.content.scrolling-section .inner-holder .inner-wrap .inner {
+  padding: 60px 60px 60px 60px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.content.scrolling-section.active .inner-holder {
+  position: fixed;
 }
 .content.active {
+  min-height: 100%;
   left: 0px;
   z-index: 1;
   max-height: 10000000000px;
   max-width: 10000000000px;
 }
-.content.prev {
-  left: auto;
-  right: 100%;
+.content .arrow {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 60px;
 }
-.content.prev.active {
-  left: auto;
-  right: 0px;
+.content .arrow:hover {
+  border-bottom: none;
 }
-.content:nth-child(1) {
-  background-image: url(http://photos.barrelny.com/wp-content/uploads/2009/09/hi_res_medium/MSG_Fountain_hi_res_medium.jpg);
+.content .arrow .icon {
+  font-weight: normal;
+  font-size: 60px;
+  vertical-align: middle;
 }
-.content:nth-child(2) {
-  background: #16a085;
+.content .arrow .icon.icon-arrow-left {
+  margin-right: 10px;
 }
-.content:nth-child(3) {
-  background-image: url(http://photos.barrelny.com/wp-content/uploads/2009/09/hi_res_medium/Cityscape_hi_res_medium.jpg);
+.content .arrow .icon.icon-arrow-right {
+  margin-left: 10px;
 }
-.content:nth-child(4) {
-  background: #9b59b6;
+.content.title-slide {
+  background: #717171;
 }
-.content:nth-child(5) {
-  background-image: url(http://photos.barrelny.com/wp-content/uploads/2009/09/hi_res_medium/NighttimeCityscape_hi_res_medium.jpg);
+.content.intro-quote {
+  background: black;
+  text-align: left;
 }
-.content:nth-child(6) {
-  background: #f39c12;
+.content.intro-quote blockquote {
+  font-weight: 700;
+  font-size: 4rem;
+  color: white;
+  text-transform: uppercase;
+  line-height: 120%;
+  margin: 0 0 50px 0;
+  padding-right: 120px;
+}
+.content.intro-quote h2.main-subtitle {
+  font-size: 2.2rem;
+}
+.content.intro-history {
+  background: black;
+}
+.content.wall-slide {
+  background: #F9F3DB;
+  text-align: left;
+}
+.content.grid-slide {
+  background: #A79A94;
+  text-align: left;
+}
+.content.grid-slide p {
+  margin-top: 30px;
+  padding-right: 80px;
+}
+.content.grid-slide p img {
+  float: left;
+  margin-right: 50px;
+}
+.content.sky-slide {
+  background: #1070B3;
+}
+.content.race-top {
+  background: #C6CEC7;
+}
+.content.skyscraper-quote {
+  background: #FBF7EC;
+  text-align: left;
+}
+.content.skyscraper-quote blockquote {
+  font-weight: 700;
+  font-size: 3rem;
+  color: #333333;
+  text-transform: uppercase;
+  line-height: 120%;
+  width: 40%;
+  padding: 60px;
+  margin: 60px;
+}
+.content.skyscraper-quote blockquote .quotes {
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  font-size: 400px;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 0.1);
+}
+.content.empire-long {
+  background: #8ECAD7;
+  text-align: center;
+}
+.content.empire-long blockquote {
+  font-weight: 700;
+  font-size: 6rem;
+  color: white;
+  text-transform: uppercase;
+  line-height: 180%;
+  padding: 120px 0 0 0;
+}
+.content.empire-long h2.main-subtitle {
+  font-size: 2.2rem;
+  padding-bottom: 220px;
+}
+.content.crossroads {
+  background: #F4E0C9;
+}
+.content.beach-pneumatic {
+  background: white;
+  text-align: center;
+}
+.content.beach-pneumatic article {
+  margin: 30px auto 0 auto;
 }
 .pull-right {
   float: right;
