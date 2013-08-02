@@ -439,6 +439,7 @@ header nav.dropdown.open {
   -o-transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
   transition: left 300ms ease-in-out, right 300ms ease-in-out, max-width 300ms ease-in-out;
   background-position: center center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -482,6 +483,7 @@ header nav.dropdown.open {
   right: 60px;
 }
 .content.full-height-section.active {
+  position: fixed;
   max-height: 100%;
 }
 .content.full-height-section article {
@@ -561,6 +563,14 @@ header nav.dropdown.open {
   width: 100%;
   min-height: 100%;
   text-align: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -ms-behavior: url(backgroundsize.min.htc);
 }
 .content.scrolling-section .inner-holder .inner-wrap {
   position: relative;
@@ -592,6 +602,7 @@ header nav.dropdown.open {
 }
 .content .arrow:hover {
   border-bottom: none;
+  cursor: pointer;
 }
 .content .arrow .icon {
   font-weight: normal;
@@ -605,7 +616,7 @@ header nav.dropdown.open {
   margin-left: 10px;
 }
 .content.title-slide {
-  background: #717171;
+  background-image: url(../img/bgs/background-images_0012_title-bg.jpg);
 }
 .content.intro-quote {
   background: black;
@@ -624,32 +635,36 @@ header nav.dropdown.open {
   font-size: 2.2rem;
 }
 .content.intro-history {
-  background: black;
+  background-image: url(../img/bgs/background-images_0011_a-brief-history.jpg);
 }
 .content.wall-slide {
-  background: #F9F3DB;
+  background-image: url(../img/bgs/background-images_0010_the-wall.jpg);
   text-align: left;
 }
 .content.grid-slide {
-  background: #A79A94;
+  background-image: url(../img/bgs/background-images_0009_the-grid.jpg);
   text-align: left;
 }
 .content.grid-slide p {
   margin-top: 30px;
   padding-right: 80px;
+  color: white;
 }
 .content.grid-slide p img {
   float: left;
   margin-right: 50px;
 }
-.content.sky-slide {
-  background: #1070B3;
+.content.melting-pot .inner-holder {
+  background: #A79A94;
 }
-.content.race-top {
-  background: #C6CEC7;
+.content.sky-slide {
+  background-image: url(../img/bgs/background-images_0008_the-sky.jpg);
+}
+.content.race-top .inner-holder {
+  background-image: url(../img/bgs/background-images_0007_race-to-the-top.jpg);
 }
 .content.skyscraper-quote {
-  background: #FBF7EC;
+  background-image: url(../img/bgs/background-images_0008_the-sky.jpg);
   text-align: left;
 }
 .content.skyscraper-quote blockquote {
@@ -671,7 +686,7 @@ header nav.dropdown.open {
   color: rgba(0, 0, 0, 0.1);
 }
 .content.empire-long {
-  background: #8ECAD7;
+  background-image: url(../img/bgs/background-images_nothing-poetic.jpg);
   text-align: center;
 }
 .content.empire-long blockquote {
@@ -686,11 +701,24 @@ header nav.dropdown.open {
   font-size: 2.2rem;
   padding-bottom: 220px;
 }
-.content.crossroads {
-  background: #F4E0C9;
+.content.the-street {
+  background-image: url(../img/bgs/background-images_0003_the-street.jpg);
+}
+.content.crossroads .inner-holder {
+  background-image: url(../img/bgs/background-images_0001_crossroads.jpg);
+}
+.content.arts-culture {
+  background-image: url(../img/bgs/background-images_0000_art-culture.jpg);
+  text-align: center;
+}
+.content.arts-culture article {
+  margin: 30px auto 0 auto;
+}
+.content.the-underground {
+  background-image: url(../img/bgs/background-images_0004_the-underground.jpg);
 }
 .content.beach-pneumatic {
-  background: white;
+  background-image: url(../img/bgs/background-images_0005_pneumatic-tube.jpg);
   text-align: center;
 }
 .content.beach-pneumatic article {

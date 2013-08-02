@@ -59,7 +59,6 @@ var notorioussvg = {
 	scrollTo: function(elHref) {
 		notorioussvg.currentlyScrolling = true;
 
-
 		if (notorioussvg.device) {
 			notoriousscroller.scrollBy(null, offset, true);
 			notorioussvg.currentlyScrolling = false;

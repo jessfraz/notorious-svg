@@ -234,7 +234,6 @@ header {
 
 			}
 		}
-		
 		.arrow {
 			position:absolute;
 			top:50%;
@@ -247,9 +246,9 @@ header {
 			}
 		}
 		&.active {
+			position: fixed;
 			max-height:100%;
 		}
-		
 		article {
 			margin:30px 0 0 0;
 			background:white;
@@ -305,6 +304,9 @@ header {
 			width:100%;
 			min-height:100%;
 			text-align:center;
+			background-position:center center;
+			.fullbackground(cover);
+			
 			.inner-wrap {
 				position:relative;
 				display:table-row;
@@ -339,8 +341,8 @@ header {
 		line-height:60px;
 		&:hover {
 			border-bottom:none;
+			cursor:pointer;
 		}
-
 		.icon {
 			font-weight:normal;
 			font-size:60px;
@@ -355,7 +357,7 @@ header {
 		}
 	}
 	&.title-slide {
-		background:#717171;
+		background-image:url(../img/bgs/background-images_0012_title-bg.jpg);
 	}
 	&.intro-quote {
 		background:black;
@@ -373,34 +375,41 @@ header {
 			font-size:2.2rem;
 		}
 	}
-	
 	&.intro-history {
-		background:black;
+		background-image:url(../img/bgs/background-images_0011_a-brief-history.jpg);
 	}
 	&.wall-slide {
-		background:#F9F3DB;
+		background-image:url(../img/bgs/background-images_0010_the-wall.jpg);
 		text-align:left;
 	}
 	&.grid-slide {
-		background:#A79A94;
+		background-image:url(../img/bgs/background-images_0009_the-grid.jpg);
 		text-align:left;
 		p {
 			margin-top:30px;
+			padding-right:80px;
+			color:white;
 			img {
 				float:left;
 				margin-right:50px;
 			}
-			padding-right:80px;
+		}
+	}
+	&.melting-pot {
+		.inner-holder {
+			background:#A79A94;
 		}
 	}
 	&.sky-slide {
-		background:#1070B3;
+		background-image:url(../img/bgs/background-images_0008_the-sky.jpg);
 	}
 	&.race-top {
-		background:#C6CEC7;
+		.inner-holder {
+			background-image:url(../img/bgs/background-images_0007_race-to-the-top.jpg);
+		}
 	}
 	&.skyscraper-quote {
-		background:#FBF7EC;
+		background-image:url(../img/bgs/background-images_0008_the-sky.jpg);
 		text-align:left;
 		blockquote {
 			font-weight:700;
@@ -422,7 +431,7 @@ header {
 		}
 	}
 	&.empire-long {
-		background:#8ECAD7;
+		background-image:url(../img/bgs/background-images_nothing-poetic.jpg);
 		text-align:center;
 		blockquote {
 			font-weight:700;
@@ -437,11 +446,26 @@ header {
 			padding-bottom:220px;
 		}
 	}
+	&.the-street {
+		background-image:url(../img/bgs/background-images_0003_the-street.jpg);
+	}
 	&.crossroads {
-		background:#F4E0C9;
+		.inner-holder {
+			background-image:url(../img/bgs/background-images_0001_crossroads.jpg);
+		}
+	}
+	&.arts-culture {
+		background-image:url(../img/bgs/background-images_0000_art-culture.jpg);
+		text-align:center;
+		article {
+			margin:30px auto 0 auto;
+		}
+	}
+	&.the-underground {
+		background-image:url(../img/bgs/background-images_0004_the-underground.jpg);
 	}
 	&.beach-pneumatic {
-		background:white;
+		background-image:url(../img/bgs/background-images_0005_pneumatic-tube.jpg);
 		text-align:center;
 		article {
 			margin:30px auto 0 auto;
