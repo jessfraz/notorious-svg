@@ -438,7 +438,7 @@ header {
 		}
 	}
 	&.skyscraper-quote {
-		background-image:url(../img/bgs/background-images_0008_the-sky.jpg);
+		background-image:url(../img/bgs/background-images-the-top.png);
 		text-align:left;
 		blockquote {
 			font-weight:700;
@@ -500,6 +500,20 @@ header {
 			margin:30px auto 0 auto;
 		}
 	}
+	&.mta {
+		background:black;
+		text-align:center;
+		.inner-holder {
+			background-image:url(../img/bgs/background-images_0003_the-street.jpg);
+		}
+		footer {
+			position:fixed;
+			bottom:0px;
+			left:0px;
+			.clearfix;
+			right:0px;
+		}
+	}
 	&.rough-past {
 		background-image:url(../img/bgs/background-images_0002_rough-past.jpg);
 		text-align:left;
@@ -535,6 +549,43 @@ header {
 			.share {
 				margin-left:10px;
 			}
+		}
+	}
+}
+
+.facts-holder {
+	position:relative;
+	background:black;
+	.clearfix;
+	width:100%;
+	margin:0;
+	padding:0;
+	.intro {
+		padding:30px;
+		border:1px solid white;
+		max-width:400px;
+		margin:200px auto 100px auto;
+	}
+	.track {
+		position:relative;
+		margin:0;
+		padding:0 0 50px 0;
+		background:url(../img/track.svg) no-repeat center top;
+		.clearfix;
+	}
+	.fact {
+		position:relative;
+		.clearfix;
+		display:block;
+		margin:0 0 50px 0;
+		padding:0;
+		&.odd {
+			text-align:left;
+			padding-left:55%;
+		}
+		&.even {
+			text-align:right;
+			padding-right:55%;
 		}
 	}
 }

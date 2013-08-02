@@ -13,6 +13,7 @@ var notorioussvg = {
 		notorioussvg.windowWidth = $(window).width();
 		
 		$('.scrolling-section article').css('margin-top', notorioussvg.windowHeight);
+		$('.facts-holder').css('margin-bottom', notorioussvg.windowHeight);
 
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 			notorioussvg.device = true;

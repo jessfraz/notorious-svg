@@ -127,8 +127,32 @@ h3.quote-title .author {
   display: block;
   color: #ffcb1e;
 }
+h3.stat {
+  color: #ffcb1e;
+  font-weight: normal;
+  font-size: 2.0rem;
+  margin: 0;
+}
 h4 {
   font-size: 20px;
+}
+h4.subtitle {
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  color: #ffcb1e;
+  font-weight: normal;
+  margin: 20px 0 0 0;
+}
+h4.fact-sub {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: white;
+  margin: 0;
+}
+h4.post-fact {
+  font-size: 12px;
+  color: white;
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  margin: 0;
 }
 h5 {
   font-size: 16px;
@@ -703,7 +727,7 @@ header nav.dropdown.open {
   background-image: url(../img/bgs/background-images_0007_race-to-the-top.jpg);
 }
 .content.skyscraper-quote {
-  background-image: url(../img/bgs/background-images_0008_the-sky.jpg);
+  background-image: url(../img/bgs/background-images-the-top.png);
   text-align: left;
 }
 .content.skyscraper-quote blockquote {
@@ -763,6 +787,29 @@ header nav.dropdown.open {
 .content.beach-pneumatic article {
   margin: 30px auto 0 auto;
 }
+.content.mta {
+  background: black;
+  text-align: center;
+}
+.content.mta .inner-holder {
+  background-image: url(../img/bgs/background-images_0003_the-street.jpg);
+}
+.content.mta footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  *zoom: 1;
+  right: 0px;
+}
+.content.mta footer:before,
+.content.mta footer:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.content.mta footer:after {
+  clear: both;
+}
 .content.rough-past {
   background-image: url(../img/bgs/background-images_0002_rough-past.jpg);
   text-align: left;
@@ -814,6 +861,69 @@ header nav.dropdown.open {
 }
 .content.end .share-holder .share {
   margin-left: 10px;
+}
+.facts-holder {
+  position: relative;
+  background: black;
+  *zoom: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.facts-holder:before,
+.facts-holder:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.facts-holder:after {
+  clear: both;
+}
+.facts-holder .intro {
+  padding: 30px;
+  border: 1px solid white;
+  max-width: 400px;
+  margin: 200px auto 100px auto;
+}
+.facts-holder .track {
+  position: relative;
+  margin: 0;
+  padding: 0 0 50px 0;
+  background: url(../img/track.svg) no-repeat center top;
+  *zoom: 1;
+}
+.facts-holder .track:before,
+.facts-holder .track:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.facts-holder .track:after {
+  clear: both;
+}
+.facts-holder .fact {
+  position: relative;
+  *zoom: 1;
+  display: block;
+  margin: 0 0 50px 0;
+  padding: 0;
+}
+.facts-holder .fact:before,
+.facts-holder .fact:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.facts-holder .fact:after {
+  clear: both;
+}
+.facts-holder .fact.odd {
+  text-align: left;
+  padding-left: 55%;
+}
+.facts-holder .fact.even {
+  text-align: right;
+  padding-right: 55%;
 }
 .pull-right {
   float: right;

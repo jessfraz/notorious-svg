@@ -84,8 +84,34 @@ h3 {
 			color:@yellow;
 		}
 	}
+	&.stat {
+		color:@yellow;
+		font-weight:normal;
+		font-size:2.0rem;
+		margin:0;
+	}
 }
-h4 { font-size: @baseFontSize * 1.25; }
+h4 { 
+	font-size: @baseFontSize * 1.25;
+	&.subtitle {
+		font-family:@serifFontFamily;
+		color:@yellow;
+		font-weight:normal;
+		margin:20px 0 0 0;
+	}
+	&.fact-sub {
+		text-transform:uppercase;
+		font-size: @baseFontSize * .75;
+		color:white;
+		margin:0;
+	}
+	&.post-fact {
+		font-size: @baseFontSize * .75;
+		color:white;
+		font-family:@serifFontFamily;
+		margin:0;
+	}
+}
 h5 { 
 	font-size: @baseFontSize;
 	color:#999999;
