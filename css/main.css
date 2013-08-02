@@ -766,19 +766,19 @@ header nav.dropdown.open {
   background: transparent;
 }
 .content.sky {
-  background-image: url(../img/bgs/background-images_0008_the-sky.jpg);
+  background: transparent;
 }
 .content.race-top .inner-holder {
-  background-image: url(../img/bgs/background-images_0007_race-to-the-top.jpg);
+  background-image: url(../img/bgs/PanoramaSkyline.jpg);
 }
 .content.skyscraper-quote {
-  background-image: url(../img/bgs/background-images-the-top.png);
+  background: transparent;
   text-align: left;
 }
 .content.skyscraper-quote blockquote {
   font-weight: 700;
   font-size: 4.2rem;
-  color: #333333;
+  color: white;
   text-transform: uppercase;
   line-height: 120%;
   max-width: 650px;
@@ -791,7 +791,7 @@ header nav.dropdown.open {
   left: -20px;
   font-size: 400px;
   line-height: 100%;
-  color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.3);
 }
 .content.empire-long {
   background-position: center top;
@@ -817,6 +817,9 @@ header nav.dropdown.open {
 .content.crossroads .inner-holder {
   background-image: url(../img/bgs/background-images_0001_crossroads.jpg);
 }
+.content.cab {
+  background: transparent;
+}
 .content.face-pairing {
   background: white;
 }
@@ -836,14 +839,13 @@ header nav.dropdown.open {
   opacity: 1;
 }
 .content.arts-culture {
-  background-image: url(../img/bgs/background-images_0000_art-culture.jpg);
   text-align: center;
 }
 .content.arts-culture article {
   margin: 30px auto 0 auto;
 }
 .content.underground {
-  background-image: url(../img/bgs/background-images_0004_the-underground.jpg);
+  background-image: url(../img/bgs/the-underground.jpg);
 }
 .content.beach-pneumatic {
   background-image: url(../img/bgs/background-images_0005_pneumatic-tube.jpg);
@@ -857,7 +859,7 @@ header nav.dropdown.open {
   text-align: center;
 }
 .content.mta .inner-holder {
-  background-image: url(../img/bgs/background-images_0003_the-street.jpg);
+  background: transparent;
 }
 .content.mta footer {
   bottom: 0px;
@@ -882,14 +884,14 @@ header nav.dropdown.open {
   margin-bottom: 0;
 }
 .content.rough-past {
-  background-image: url(../img/bgs/background-images_0002_rough-past.jpg);
+  background-image: url(../img/bgs/a-rocky-past.jpg);
   text-align: left;
 }
 .content.buskers {
   background: #1073B9;
 }
 .content.end {
-  background: #717171;
+  background-image: url(../img/bgs/tweet-this.jpg);
 }
 .content.end form {
   *zoom: 1;

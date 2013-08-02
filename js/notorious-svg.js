@@ -243,10 +243,35 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 	onFace: 0,
 	verbs: ['powerful', 'safe', 'explosive', 'fierce', 'universal', 'serendipitous', 'home', 'inspiring', 'overwhelming', 'unique', 'beautiful'],
 	videos: function(){
-		var metropolis = _V_("metropolis");
+		var meltingpot = _V_("melting-pot-boat");
 		
-		metropolis.width(notorioussvg.windowWidth);
-		metropolis.height(notorioussvg.windowHeight);
+		meltingpot.width(notorioussvg.windowWidth);
+		meltingpot.height(notorioussvg.windowHeight);
+		
+		var did_you_know = _V_("did-you-know");
+		
+		did_you_know.width(notorioussvg.windowWidth);
+		did_you_know.height(notorioussvg.windowHeight);
+		
+		var skyscraper = _V_("skyscraper-establishes");
+		
+		skyscraper.width(notorioussvg.windowWidth);
+		skyscraper.height(notorioussvg.windowHeight);
+		
+		var cab = _V_("the-cab-video");
+		
+		cab.width(notorioussvg.windowWidth);
+		cab.height(notorioussvg.windowHeight);
+		
+		var clouds = _V_("clouds");
+		
+		clouds.width(notorioussvg.windowWidth);
+		clouds.height(notorioussvg.windowHeight);
+		
+		var street = _V_("street-video");
+		
+		street.width(notorioussvg.windowWidth);
+		street.height(notorioussvg.windowHeight);
 	},
 	startVideo: function(next_element){
 		if (next_element.find('video').length){
