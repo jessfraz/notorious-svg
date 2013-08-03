@@ -291,7 +291,7 @@ body {
   font-size: 16px;
   line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #333333;
   height: 100%;
   width: 100%;
   overflow-x: hidden;
@@ -833,13 +833,15 @@ header nav.dropdown.open {
   padding: 60px;
   margin: 60px;
 }
-.content.skyscraper-quote blockquote .quotes {
+.content.skyscraper-quote .quotes {
+  font-weight: 700;
+  font-size: 4.2rem;
   position: absolute;
-  top: -40px;
-  left: -20px;
+  top: 20px;
+  left: 60px;
   font-size: 400px;
   line-height: 100%;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.2);
 }
 .content.empire-long {
   background-position: center top;

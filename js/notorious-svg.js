@@ -276,8 +276,10 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 	},
 	startVideo: function(next_element){
 		if (next_element.find('video').length){
-			if (next_element.find('article').length && next_element.hasClass('scrolling-section')){
+			if (next_element.find('article').length && next_element.hasClass('scrolling-section') && !next_element.hasClass('mta')){
 				next_element.find('article').css('position', 'relative');
+			} else if (next_element.hasClass('mta')){
+				next_element.find('.facts-holder').css('position','relative');
 			}
 			var video_id = next_element.find('video').attr('id');
 			_V_(video_id).play();
@@ -469,8 +471,10 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 						var video_id = $currentactive.find('video').attr('id');
 						_V_(video_id).pause();
 					
-						if ($currentactive.hasClass('scrolling-section')){
-							$currentactive.find('article').css('position','absolute')
+						if ($currentactive.hasClass('scrolling-section') && !$currentactive.hasClass('mta')){
+							$currentactive.find('article').css('position','absolute');
+						} else if ($currentactive.hasClass('mta')){
+							$currentactive.find('.facts-holder').css('position','absolute');
 						}
 					}
 				
