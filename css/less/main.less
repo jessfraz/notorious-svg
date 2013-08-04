@@ -326,7 +326,7 @@ header {
 			margin:30px 0 0 0;
 			background:white;
 			padding:10px;
-			max-width:50%;
+			max-width:800px;
 			.article-inner {
 				border:1px solid #999999;
 				padding: 40px 40px;
@@ -334,6 +334,10 @@ header {
 					font-family:@serifFontFamily;
 					font-size:1.3rem;
 					line-height:150%;
+					text-align:left;
+					&:last-child {
+						margin-bottom:0;
+					}
 				}
 			}
 		}
@@ -415,25 +419,6 @@ header {
 				position:fixed;
 			}
 		}
-		.arrow-scroll {
-			position:absolute;
-			top:50%;
-			margin-top:-67px;
-			padding:10px 10px 10px 30px;
-			text-align:center;
-			line-height:100%;
-			&.arrow-scroll {
-				right:60px;
-			}
-			.icon {
-				.rotate(90deg);
-				display:block;
-				margin:-0px auto 0px auto !important;
-			}
-			&:hover {
-				cursor:default;
-			}
-		}
 	}
 	&.active {
 		min-height:100%;
@@ -468,6 +453,23 @@ header {
 				margin-left:10px;
 			}
 
+		}
+		&.arrow-scroll {
+			position:absolute;
+			top:50%;
+			margin-top:-67px;
+			padding:10px 10px 10px 30px;
+			text-align:center;
+			line-height:100%;
+			right:60px;
+			.icon {
+				.rotate(90deg);
+				display:block;
+				margin:-0px auto 0px auto !important;
+			}
+			&:hover {
+				cursor:default;
+			}
 		}
 	}
 	&.title-slide {
@@ -507,6 +509,64 @@ header {
 			img {
 				float:left;
 				margin-right:50px;
+			}
+		}
+	}
+	&.moses {
+		background:#A31D24;
+		text-align:center;
+		img {
+			margin:30px auto 0px auto;
+			max-width:100%;
+		}
+		blockquote {
+			position:absolute;
+			top:600px;
+			left:0;
+			right:0;
+			padding:0 60px;
+			color:white;
+			font-size:6em;
+			font-style:italic;
+			font-weight:400;
+			font-family:@serifFontFamily;
+			line-height:120%;
+			span {
+				display:block;
+				&.text-left {
+					text-align:left;
+				}
+				&.text-right {
+					text-align:right;
+				}
+				&.author {
+					text-align:center;
+					font-size:0.6em;
+				}
+			}
+		}
+		h2.title {
+			color:#333;
+			font-size:3.2em;
+			margin-bottom:20px;
+		}
+		article {
+			margin:150px auto 150px auto !important;
+			background:white;
+			padding:10px;
+			max-width:800px;
+			.article-inner {
+				border:1px solid #999999;
+				padding: 40px 40px;
+				p {
+					font-family:@serifFontFamily;
+					font-size:1.3rem;
+					line-height:150%;
+					text-align:left;
+					&:last-child {
+						margin-bottom:0;
+					}
+				}
 			}
 		}
 	}
@@ -581,8 +641,12 @@ header {
 		.arrow {
 			.opacity(0);
 			.transition(all 300 ms ease-in);
+			max-width:0;
+			max-height:0;
 			&.show {
 				.opacity(100);
+				max-width:100000px;
+				max-height:100000px;
 			}
 		}
 	}
@@ -884,13 +948,13 @@ header {
 	}
 }
 
-/*video {
+video {
 	height:100%;
 	width:100%;
 	position:absolute;
 	left:0px;
 	top:0px;
-}*/
+}
 
 
 

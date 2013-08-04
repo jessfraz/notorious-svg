@@ -1,5 +1,5 @@
 /*
-notorious-svg - v - 2013-08-02
+notorious-svg - v - 2013-08-04
 Barrel Creative Days project by Jessie Frazelle, Isha Kasliwal, Matt Ortega, Diane Wang, and Molly Sugar.
 Lovingly coded by The Nortorious SVG  - http://barrelny.com 
 */
@@ -242,37 +242,14 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 	totalFaces: $('.left .face').length,
 	onFace: 0,
 	verbs: ['powerful', 'safe', 'explosive', 'fierce', 'universal', 'serendipitous', 'home', 'inspiring', 'overwhelming', 'unique', 'beautiful'],
+	videosArray: ['melting-pot-boat', 'did-you-know', 'skyscraper-establishes', 'the-cab-video', 'clouds', 'street-video'],
 	agent: navigator.userAgent.toLowerCase(),
 	videos: function(){
-		var meltingpot = _V_("melting-pot-boat");
-		
-		meltingpot.width(notorioussvg.windowWidth);
-		meltingpot.height(notorioussvg.windowHeight);
-		
-		var did_you_know = _V_("did-you-know");
-		
-		did_you_know.width(notorioussvg.windowWidth);
-		did_you_know.height(notorioussvg.windowHeight);
-		
-		var skyscraper = _V_("skyscraper-establishes");
-		
-		skyscraper.width(notorioussvg.windowWidth);
-		skyscraper.height(notorioussvg.windowHeight);
-		
-		var cab = _V_("the-cab-video");
-		
-		cab.width(notorioussvg.windowWidth);
-		cab.height(notorioussvg.windowHeight);
-		
-		var clouds = _V_("clouds");
-		
-		clouds.width(notorioussvg.windowWidth);
-		clouds.height(notorioussvg.windowHeight);
-		
-		var street = _V_("street-video");
-		
-		street.width(notorioussvg.windowWidth);
-		street.height(notorioussvg.windowHeight);
+		for (var i = 0; i < notorioussvg.videosArray.length; i++) {
+			var thisVideo = _V_(notorioussvg.videosArray[i]);
+			thisVideo.height(notorioussvg.windowHeight);
+			thisVideo.width(notorioussvg.windowWidth);
+		}
 	},
 	startVideo: function(next_element){
 		if (next_element.find('video').length){
@@ -301,7 +278,7 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 			notorioussvg.device = true;
 			// alert if phone
 			if (/Android|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-				alert('This site is best experienced on a desktop, or tablet in landscape. Haters gonna hate.');
+				alert('This site is best experienced on a desktop. We will catch on the flipside in Chrome.');
 			}
 		} else {
 			notorioussvg.device = false;
@@ -358,10 +335,11 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 						notorioussvg.onFace++;
                     });
 					if (notorioussvg.onFace == (notorioussvg.totalFaces - 2)){
-	                	$('.face-pairing .arrow').addClass('show');
+	                	$('.face-pairing .arrow-right').addClass('show');
 	                } else {
-						$('.face-pairing .arrow').removeClass('show');
+						$('.face-pairing .arrow-right').removeClass('show');
 	                }
+					$('.face-pairing .arrow-scroll').removeClass('show');
                 } else if (direction == "up" && notorioussvg.onFace!=0){
 					$('#verb').fadeOut(250, function(){
 						$('#verb').removeClass().addClass('verb-'+(notorioussvg.onFace-1));
@@ -373,7 +351,12 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
                     $('.col.right').animate({top: -notorioussvg.windowHeight*(notorioussvg.onFace-1) }, 500, function(){
 						notorioussvg.onFace--;
                     });
-					$('.face-pairing .arrow').removeClass('show');
+					$('.face-pairing .arrow-right').removeClass('show');
+					if (notorioussvg.onFace == 1){
+	                	$('.face-pairing .arrow-scroll').addClass('show');
+	                } else {
+						$('.face-pairing .arrow-scroll').removeClass('show');
+	                }
                 }
 				
 				setTimeout(function(){
@@ -522,10 +505,10 @@ $("videojs.Flash",u.l);u.l.isSupported=u.l.isSupported;u.l.canPlaySource=u.l.nb;
 		/* flash backups for videos */
 		videojs.options.flash.swf = "js/lib/video-js.swf";
 		
-		if (notorioussvg.agent.indexOf('safari')!=-1){ 
+		if (notorioussvg.agent.indexOf('safari')!=-1 && !notorioussvg.device){ 
 			if (notorioussvg.agent.indexOf('chrome')  > -1){
 			} else {
-				alert('Hello Safari User, this is best viewed in Chrome due to the background videos, if you get stuck in a video use your keyboard right and left arrows to move to the next page.');
+				alert('Hello Safari User, this is best viewed in Chrome due to the background videos, if you get stuck in a video use your keyboard right and left arrows to move to the next page. We will catch you on the flipside in Chrome.');
 			}
 		}
 	}

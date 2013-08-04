@@ -591,7 +591,7 @@ header nav.dropdown.open {
   margin: 30px 0 0 0;
   background: white;
   padding: 10px;
-  max-width: 50%;
+  max-width: 800px;
 }
 .content.full-height-section article .article-inner {
   border: 1px solid #999999;
@@ -601,6 +601,10 @@ header nav.dropdown.open {
   font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
   font-size: 1.3rem;
   line-height: 150%;
+  text-align: left;
+}
+.content.full-height-section article .article-inner p:last-child {
+  margin-bottom: 0;
 }
 .content.full-height-section footer {
   position: absolute;
@@ -713,29 +717,6 @@ header nav.dropdown.open {
 .content.scrolling-section.active .inner-holder {
   position: fixed;
 }
-.content.scrolling-section .arrow-scroll {
-  position: absolute;
-  top: 50%;
-  margin-top: -67px;
-  padding: 10px 10px 10px 30px;
-  text-align: center;
-  line-height: 100%;
-}
-.content.scrolling-section .arrow-scroll.arrow-scroll {
-  right: 60px;
-}
-.content.scrolling-section .arrow-scroll .icon {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-  display: block;
-  margin: 0px auto 0px auto !important;
-}
-.content.scrolling-section .arrow-scroll:hover {
-  cursor: default;
-}
 .content.active {
   min-height: 100%;
   left: 0px;
@@ -769,6 +750,27 @@ header nav.dropdown.open {
 }
 .content .arrow .icon.icon-arrow-right {
   margin-left: 10px;
+}
+.content .arrow.arrow-scroll {
+  position: absolute;
+  top: 50%;
+  margin-top: -67px;
+  padding: 10px 10px 10px 30px;
+  text-align: center;
+  line-height: 100%;
+  right: 60px;
+}
+.content .arrow.arrow-scroll .icon {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  display: block;
+  margin: 0px auto 0px auto !important;
+}
+.content .arrow.arrow-scroll:hover {
+  cursor: default;
 }
 .content.title-slide {
   background-image: url(../img/bgs/background-images_0012_title-bg.jpg);
@@ -809,6 +811,64 @@ header nav.dropdown.open {
 .content.grid-slide p img {
   float: left;
   margin-right: 50px;
+}
+.content.moses {
+  background: #A31D24;
+  text-align: center;
+}
+.content.moses img {
+  margin: 30px auto 0px auto;
+  max-width: 100%;
+}
+.content.moses blockquote {
+  position: absolute;
+  top: 600px;
+  left: 0;
+  right: 0;
+  padding: 0 60px;
+  color: white;
+  font-size: 6em;
+  font-style: italic;
+  font-weight: 400;
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  line-height: 120%;
+}
+.content.moses blockquote span {
+  display: block;
+}
+.content.moses blockquote span.text-left {
+  text-align: left;
+}
+.content.moses blockquote span.text-right {
+  text-align: right;
+}
+.content.moses blockquote span.author {
+  text-align: center;
+  font-size: 0.6em;
+}
+.content.moses h2.title {
+  color: #333;
+  font-size: 3.2em;
+  margin-bottom: 20px;
+}
+.content.moses article {
+  margin: 150px auto 150px auto !important;
+  background: white;
+  padding: 10px;
+  max-width: 800px;
+}
+.content.moses article .article-inner {
+  border: 1px solid #999999;
+  padding: 40px 40px;
+}
+.content.moses article .article-inner p {
+  font-family: "adobe-garamond-pro", Georgia, "Times New Roman", Times, serif;
+  font-size: 1.3rem;
+  line-height: 150%;
+  text-align: left;
+}
+.content.moses article .article-inner p:last-child {
+  margin-bottom: 0;
 }
 .content.melting-pot .inner-holder {
   background: transparent;
@@ -882,11 +942,15 @@ header nav.dropdown.open {
   -ms-transition: all 300 ms ease-in;
   -o-transition: all 300 ms ease-in;
   transition: all 300 ms ease-in;
+  max-width: 0;
+  max-height: 0;
 }
 .content.face-pairing .arrow.show {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=0);
   opacity: 1;
+  max-width: 100000px;
+  max-height: 100000px;
 }
 .content.arts-culture {
   text-align: center;
@@ -1243,13 +1307,13 @@ header nav.dropdown.open {
   font-family: 'Erica One', cursive;
   color: #E81377;
 }
-/*video {
-	height:100%;
-	width:100%;
-	position:absolute;
-	left:0px;
-	top:0px;
-}*/
+video {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
 .pull-right {
   float: right;
 }
