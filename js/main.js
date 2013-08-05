@@ -16,10 +16,10 @@ var notorioussvg = {
 	videosArray: ['melting-pot-boat', 'did-you-know', 'skyscraper-establishes', 'the-cab-video', 'clouds', 'street-video'],
 	agent: navigator.userAgent.toLowerCase(),
 	videos: function(){
+		var aspectRatio = 9/16;
 		for (var i = 0; i < notorioussvg.videosArray.length; i++) {
 			var thisVideo = _V_(notorioussvg.videosArray[i]);
-			thisVideo.height(notorioussvg.windowHeight);
-			thisVideo.width(notorioussvg.windowWidth);
+			thisVideo.width(notorioussvg.windowWidth).height(notorioussvg.windowHeight);
 		}
 	},
 	startVideo: function(next_element){
@@ -275,13 +275,6 @@ var notorioussvg = {
 		
 		/* flash backups for videos */
 		videojs.options.flash.swf = "js/lib/video-js.swf";
-		
-		if (notorioussvg.agent.indexOf('safari')!=-1 && !notorioussvg.device){ 
-			if (notorioussvg.agent.indexOf('chrome')  > -1){
-			} else {
-				alert('Hello Safari User, this is best viewed in Chrome due to the background videos, if you get stuck in a video use your keyboard right and left arrows to move to the next page. We will catch you on the flipside in Chrome.');
-			}
-		}
 	}
 };
 

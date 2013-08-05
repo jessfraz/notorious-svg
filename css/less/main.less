@@ -359,12 +359,14 @@ header {
 		}
 	}
 	&.scrolling-section {
+		overflow-y:scroll;
 		footer {
 			.clearfix;
 			position:relative;
 			background:rgba(51,51,51,0.5);
 			padding:40px;
 			margin:0;
+			pointer-events: auto;
 		}
 		article {
 			position:relative;
@@ -399,8 +401,8 @@ header {
 			min-height:100%;
 			text-align:center;
 			background-position:center center;
+			pointer-events: none;
 			.fullbackground(cover);
-			
 			.inner-wrap {
 				position:relative;
 				display:table-row;
@@ -430,6 +432,7 @@ header {
 		min-width:100%;
 		.video-js {
 			position:fixed;
+			pointer-events: none;
 		}
 	}
 	.arrow {
@@ -954,6 +957,7 @@ video {
 	position:absolute;
 	left:0px;
 	top:0px;
+	pointer-events: none;
 }
 
 

@@ -631,12 +631,16 @@ header nav.dropdown.open {
 .content.full-height-section footer h5.notorious-svg span {
   margin: 0px 10px;
 }
+.content.scrolling-section {
+  overflow-y: scroll;
+}
 .content.scrolling-section footer {
   *zoom: 1;
   position: relative;
   background: rgba(51, 51, 51, 0.5);
   padding: 40px;
   margin: 0;
+  pointer-events: auto;
 }
 .content.scrolling-section footer:before,
 .content.scrolling-section footer:after {
@@ -695,6 +699,7 @@ header nav.dropdown.open {
   min-height: 100%;
   text-align: center;
   background-position: center center;
+  pointer-events: none;
   background-repeat: no-repeat;
   background-attachment: fixed;
   -webkit-background-size: cover;
@@ -728,6 +733,7 @@ header nav.dropdown.open {
 }
 .content.active .video-js {
   position: fixed;
+  pointer-events: none;
 }
 .content .arrow {
   color: white;
@@ -1313,6 +1319,7 @@ video {
   position: absolute;
   left: 0px;
   top: 0px;
+  pointer-events: none;
 }
 .pull-right {
   float: right;
