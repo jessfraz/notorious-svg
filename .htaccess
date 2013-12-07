@@ -135,7 +135,5 @@ FileETag None
     RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
-#AuthType Basic
-#AuthName "Yo"
-#AuthUserFile /home/141944/etc/.htpasswd
-#Require valid-user
+# hide .git
+RedirectMatch 404 "(?:.*)/(?:\.git|file_or_dir)(?:/.*)?$"
