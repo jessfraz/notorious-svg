@@ -14,4 +14,4 @@ This project uses [Grunt](http://gruntjs.com) to automate build tasks.
 
 
 
-[![Analytics](https://ga-beacon.appspot.com/UA-29404280-16/notorious-svg/README.md)](https://github.com/jfrazelle/notorious-svg)
+[![Analytics](https://ga-beacon.appspot.com/UA-29404280-16/notorious-svg/README.md)](https://github.com/jessfraz/notorious-svg)
